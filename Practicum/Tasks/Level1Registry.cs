@@ -15,6 +15,8 @@ public static class Level1Registry
         new Task02_Primitives(),   
         new Task03_Calculator(),   
         new Task04_EvenOdd(),                 
-        new Task05_MultiplicationTable()
+        new Task05_MultiplicationTable(),
+        new Task06_DigitSum(),        
+        new Task07_ReverseString()    
     };
 }
