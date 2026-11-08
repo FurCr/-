@@ -12,7 +12,9 @@ public static class Level1Registry
     public static ITask[] Tasks { get; } = new ITask[]
     {
         new Task01_HelloWorld(),
-        new Task02_Primitives(),   // добавили
-        new Task03_Calculator()    // добавили
+        new Task02_Primitives(),   
+        new Task03_Calculator(),   
+        new Task04_EvenOdd(),                 
+        new Task05_MultiplicationTable()
     };
 }
