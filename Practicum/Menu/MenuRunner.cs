@@ -4,6 +4,7 @@ using System.Text;
 
 using Practicum.Common;
 using Practicum.Tasks.Level1;
+using Practicum.Tasks.Level2;
 
 namespace Practicum.Menu;
 public class MenuRunner
@@ -25,6 +26,9 @@ public class MenuRunner
             {
                 case "1":
                     RunLevel("Уровень 1: Базовый", Level1Registry.Tasks);
+                    break;
+                case "2":
+                    RunLevel("Уровень 2: Средний", Level2Registry.Tasks);
                     break;
                 case "4":
                 case "q":
