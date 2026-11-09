@@ -50,3 +50,25 @@ git merge feature/git-basics
 
 Научился создавать ветки, сливать их (merge). Понял, что конфликт возникает, когда две ветки меняют одну строку. Его нужно решать вручную: открыть файл, удалить маркеры <<<<<<<, =======, >>>>>>> и оставить нужный текст.
 
+\## Task 35 — Branches \& PR
+
+\### Commands
+
+git checkout -b feature/task-35
+
+git rebase -i HEAD\~3
+
+git push --force origin feature/task-35
+
+
+
+\### Rebase result
+
+Успешно объединил 3 коммита в 1 через squash.
+
+
+
+\### What I learned
+
+Научился делать интерактивный rebase и переписывать историю коммитов.
+
