@@ -25,5 +25,6 @@ public static class Level1Registry
         new Task12_Palindrome(),
         new Task13_WordCounter(),
         new Task14_AgeCalculator()
+
     };
 }
