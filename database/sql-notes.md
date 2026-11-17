@@ -636,3 +636,32 @@ FROM DepartmentAverage ORDER BY AverageSalary DESC;
 ### Вывод
 
 CTE позволяет вынести расчёт в отдельную именованную часть запроса.
+
+## Задание 26 — CASE в SELECT
+
+### SQL
+
+```sql
+SELECT EmployeeName, Salary,
+       CASE
+           WHEN Salary > 60000 THEN 'High'
+           WHEN Salary BETWEEN 40000 AND 60000 THEN 'Medium'
+           ELSE 'Low'
+       END AS SalaryLevel,
+       HireDate,
+       CASE
+           WHEN HireDate < '2020-01-01' THEN 'Senior'
+           WHEN HireDate < '2023-01-01' THEN 'Mid'
+           ELSE 'Junior'
+       END AS Tenure
+FROM Employees
+ORDER BY EmployeeId;
+```
+
+### Результат
+
+Для каждого из 10 сотрудников выводятся SalaryLevel и Tenure. У сотрудников с зарплатой 60000 и ниже, но не ниже 40000, уровень Medium. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+CASE формирует значения по условиям без изменения таблицы.
