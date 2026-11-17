@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
 
+/// <summary>Задание №6.</summary>
 public class Task06_DigitSum : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Сумма цифр числа (строка + арифметика)";
+    /// <summary>Описание задания.</summary>
     public string Description => "Найти сумму цифр введённого числа (например, 1234 → 10).";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Способ 1 (строка): число → ToString() → пройти по символам",
@@ -14,6 +18,7 @@ public class Task06_DigitSum : ITask
         "Отрицательные числа — брать модуль"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("Введите число: ");
