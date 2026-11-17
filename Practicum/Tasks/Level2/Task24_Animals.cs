@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №24.</summary>
 public class Task24_Animals : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Животные: наследование";
+    /// <summary>Описание задания.</summary>
     public string Description => "Создать классы животных и показать полиморфизм.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Абстрактный Animal и ToString",
@@ -14,6 +18,7 @@ public class Task24_Animals : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         List<Animal> animals = new List<Animal>
@@ -32,6 +37,7 @@ public class Task24_Animals : ITask
 
     private abstract class Animal
     {
+        /// <summary>Имя.</summary>
         public string Name { get; }
 
         protected Animal(string name)
@@ -39,8 +45,10 @@ public class Task24_Animals : ITask
             Name = name;
         }
 
+        /// <summary>Издаёт звук.</summary>
         public abstract void MakeSound();
 
+        /// <summary>Выполняет действие.</summary>
         public override string ToString()
         {
             return GetType().Name + ": " + Name;
@@ -49,20 +57,27 @@ public class Task24_Animals : ITask
 
     private class Dog : Animal
     {
+        /// <summary>Выполняет действие.</summary>
         public Dog(string name) : base(name) { }
+        /// <summary>Издаёт звук.</summary>
         public override void MakeSound() => Console.WriteLine("Гав!");
     }
 
     private class Cat : Animal
     {
+        /// <summary>Выполняет действие.</summary>
         public Cat(string name) : base(name) { }
+        /// <summary>Издаёт звук.</summary>
         public override void MakeSound() => Console.WriteLine("Мяу!");
     }
 
     private class Bird : Animal
     {
+        /// <summary>Выполняет действие.</summary>
         public Bird(string name) : base(name) { }
+        /// <summary>Издаёт звук.</summary>
         public override void MakeSound() => Console.WriteLine("Чик-чирик!");
+        /// <summary>Имя.</summary>
         public void Fly() => Console.WriteLine(Name + " летает.");
     }
 }
