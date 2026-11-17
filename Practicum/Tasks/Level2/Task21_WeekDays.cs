@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №21.</summary>
 public class Task21_WeekDays : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Дни недели";
+    /// <summary>Описание задания.</summary>
     public string Description => "Определить название дня и является ли он выходным.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "enum DayOfWeek",
@@ -19,6 +23,7 @@ public class Task21_WeekDays : ITask
         Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
     }
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         foreach (DayOfWeek day in Enum.GetValues<DayOfWeek>())
