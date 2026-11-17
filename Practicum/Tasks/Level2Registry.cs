@@ -18,6 +18,7 @@ public static class Level2Registry
         new Task25_Shapes(),
         new Task26_Discounts(),
         new Task27_Students(),
-        new Task28_Points()
+        new Task28_Points(),
+        new Task29_Notifications()
     };
 }
