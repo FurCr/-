@@ -5,10 +5,14 @@ using System.Text;
 using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
+/// <summary>Задание №7.</summary>
 public class Task07_ReverseString : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Реверс строки без LINQ";
+    /// <summary>Описание задания.</summary>
     public string Description => "Перевернуть введённую строку.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Не использовать Array.Reverse и LINQ",
@@ -16,6 +20,7 @@ public class Task07_ReverseString : ITask
         "Пустая строка и строка из одного символа — обрабатываются корректно"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("Введите строку: ");
