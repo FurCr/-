@@ -109,3 +109,24 @@ FROM Employees;
 ### Вывод
 
 COUNT, SUM, AVG, MIN и MAX дают общую статистику.
+
+## Задание 06 — GROUP BY по отделам
+
+### SQL
+
+```sql
+SELECT DepartmentId, COUNT(*) AS EmployeesCount,
+       ROUND(AVG(Salary), 2) AS AverageSalary,
+       SUM(Salary) AS TotalSalary
+FROM Employees
+GROUP BY DepartmentId
+ORDER BY AverageSalary DESC;
+```
+
+### Результат
+
+Отделы по средней зарплате: 4 (90000), 1 (60000), 2 (57000), 3 (44000). (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+GROUP BY собирает сотрудников каждого отдела в одну группу.
