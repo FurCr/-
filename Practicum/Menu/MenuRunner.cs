@@ -1,6 +1,7 @@
 using Practicum.Common;
 using Practicum.Tasks.Level1;
 using Practicum.Tasks.Level2;
+using Practicum.Tasks.Level3;
 
 namespace Practicum.Menu;
 
@@ -28,8 +29,7 @@ public class MenuRunner
                     RunLevel("Уровень 2: Средний", Level2Registry.Tasks, 16);
                     break;
                 case "3":
-                    Console.WriteLine("Задания третьего уровня пока не добавлены.");
-                    Console.ReadLine();
+                    RunLevel("Уровень 3: Продвинутый", Level3Registry.Tasks, 36);
                     break;
                 case "0":
                 case "4":
