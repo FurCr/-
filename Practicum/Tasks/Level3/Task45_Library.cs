@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №45.</summary>
 public class Task45_Library : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Библиотека";
+    /// <summary>Описание задания.</summary>
     public string Description => "Выдача и возврат книг.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Book, Reader и Library",
@@ -13,6 +17,7 @@ public class Task45_Library : ITask
         "Исключения и юнит-тесты"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Library library = new Library();
@@ -32,12 +37,17 @@ public class Task45_Library : ITask
     }
 }
 
+/// <summary>Выполняет действие.</summary>
 public class Book
 {
+    /// <summary>Название задания.</summary>
     public string Title { get; }
+    /// <summary>Выполняет действие.</summary>
     public string Author { get; }
+    /// <summary>Доступна ли книга.</summary>
     public bool IsAvailable { get; internal set; } = true;
 
+    /// <summary>Выполняет действие.</summary>
     public Book(string title, string author)
     {
         Title = title;
@@ -45,26 +55,33 @@ public class Book
     }
 }
 
+/// <summary>Выполняет действие.</summary>
 public class Reader
 {
+    /// <summary>Имя.</summary>
     public string Name { get; }
+    /// <summary>Выданные книги.</summary>
     public List<Book> BorrowedBooks { get; } = new List<Book>();
 
+    /// <summary>Выполняет действие.</summary>
     public Reader(string name)
     {
         Name = name;
     }
 }
 
+/// <summary>Выполняет действие.</summary>
 public class Library
 {
     private List<Book> books = new List<Book>();
 
+    /// <summary>Выполняет действие.</summary>
     public void AddBook(Book book)
     {
         books.Add(book);
     }
 
+    /// <summary>Выдаёт книгу.</summary>
     public void Borrow(Book book, Reader reader)
     {
         if (!books.Contains(book))
@@ -78,6 +95,7 @@ public class Library
         reader.BorrowedBooks.Add(book);
     }
 
+    /// <summary>Возвращает книгу.</summary>
     public void Return(Book book, Reader reader)
     {
         if (!reader.BorrowedBooks.Contains(book))
