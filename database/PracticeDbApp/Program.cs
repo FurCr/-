@@ -37,6 +37,7 @@ while (true)
         bool departmentOk = int.TryParse(Console.ReadLine(), out int departmentId);
 
         if (name.Length == 0 || name.Length > 100 || !salaryOk || salary <= 0 ||
+            salary >= 100000000m || decimal.Round(salary, 2) != salary ||
             !departmentOk || departmentId <= 0)
         {
             Console.WriteLine("Неверные данные.");
