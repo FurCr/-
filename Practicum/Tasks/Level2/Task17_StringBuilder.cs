@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №17.</summary>
 public class Task17_StringBuilder : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "StringBuilder и конкатенация";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сравнить два способа создания длинной строки.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Собрать строку из 10000 чисел",
@@ -14,6 +18,7 @@ public class Task17_StringBuilder : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         System.Diagnostics.Stopwatch timer = System.Diagnostics.Stopwatch.StartNew();
