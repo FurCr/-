@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №42.</summary>
 public class Task42_Cancellation : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Отмена операции";
+    /// <summary>Описание задания.</summary>
     public string Description => "Остановить длительную задачу через две секунды.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "CancellationTokenSource",
@@ -13,6 +17,7 @@ public class Task42_Cancellation : ITask
         "Поймать OperationCanceledException"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         RunAsync().GetAwaiter().GetResult();
