@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="Practicum.csproj" />
-  <Project Path="../Practicum.Tests/Practicum.Tests.csproj" />
-</Solution>
