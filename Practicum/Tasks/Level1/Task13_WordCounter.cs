@@ -7,10 +7,14 @@ using Practicum.Common;
 namespace Practicum.Tasks.Level1;
 
 
+/// <summary>Задание №13.</summary>
 public class Task13_WordCounter : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Счётчик вхождений слов в тексте (Dictionary)";
+    /// <summary>Описание задания.</summary>
     public string Description => "Посчитать, сколько раз каждое слово встречается в тексте.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Использовать Dictionary<string, int>",
@@ -19,6 +23,7 @@ public class Task13_WordCounter : ITask
         "Вывести пары «слово → количество», отсортированные по убыванию количества"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.WriteLine("Введите текст:");
