@@ -20,6 +20,7 @@ public static class Level2Registry
         new Task27_Students(),
         new Task28_Points(),
         new Task29_Notifications(),
-        new Task30_BankAccount()
+        new Task30_BankAccount(),
+        new Task31_FileWriter()
     };
 }
