@@ -61,3 +61,13 @@ PR: https://github.com/FurCr/-/pull/1 — объединён с `main`.
 
 Ветка для объединения: `feature/rebase-demo`.
 Три небольших коммита объединены в один.
+
+### git log --oneline (после объединения)
+
+```text
+dfad94a docs: task 35 - rebase
+a7a25d6 feat: task 35 - git
+5d10ab2 chore: add gitignore and editorconfig
+7d14070 feat: task 34 - word groups
+1e114db feat: task 33 - employees
+```
