@@ -482,3 +482,42 @@ WHERE object_id = OBJECT_ID('dbo.Employees')
 ### Вывод
 
 Индексы могут ускорить поиск, но выбор плана зависит от размера таблицы.
+
+## Задание 21 — Хранимые процедуры
+
+### SQL
+
+```sql
+CREATE OR ALTER PROCEDURE dbo.sp_GetEmployeesByDepartment
+    @DeptId INT
+AS
+BEGIN
+    SELECT EmployeeId, EmployeeName, Salary
+    FROM Employees WHERE DepartmentId = @DeptId;
+END;
+GO
+EXEC dbo.sp_GetEmployeesByDepartment @DeptId = 1;
+GO
+
+CREATE OR ALTER PROCEDURE dbo.sp_GetAverageSalaryByDepartment
+    @DeptId INT,
+    @AvgSalary DECIMAL(10,2) OUTPUT
+AS
+BEGIN
+    SELECT @AvgSalary = AVG(Salary)
+    FROM Employees WHERE DepartmentId = @DeptId;
+END;
+GO
+DECLARE @Average DECIMAL(10,2);
+EXEC dbo.sp_GetAverageSalaryByDepartment @DeptId = 1, @AvgSalary = @Average OUTPUT;
+SELECT @Average AS AverageSalary;
+GO
+```
+
+### Результат
+
+Первая процедура выводит 4 сотрудников отдела 1, вторая возвращает среднюю зарплату 60000. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Процедуры принимают входной и выходной параметры.
