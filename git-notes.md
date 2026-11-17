@@ -140,3 +140,19 @@ git log --oneline
 4ad9f61 docs: recovery practice
 5bbef59 init: local git exercise
 ```
+
+## Задание 50 — bisect
+
+Проверка в отдельном учебном локальном репозитории, 11 коммитов. В шестом коммите значение изменено с `result=10` на `result=9`.
+
+```text
+git bisect start
+git bisect bad HEAD
+git bisect good <первый рабочий коммит>
+9c77bb4 bad
+c8cbe6c good
+f852b5e good
+9c77bb4 is the first bad commit
+git bisect reset
+Switched to branch 'main'
+```
