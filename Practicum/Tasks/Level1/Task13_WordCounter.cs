@@ -24,9 +24,11 @@ public class Task13_WordCounter : ITask
         Console.WriteLine("Введите текст:");
         string text = Console.ReadLine() ?? "";
 
-        var words = text.ToLower()
-            .Split(new[] { ' ', '.', ',', '!', '?', ';', ':', '-', '\n', '\r', '\t' },
-                   StringSplitOptions.RemoveEmptyEntries);
+        string prepared = "";
+        foreach (char letter in text.ToLower())
+            prepared += char.IsLetterOrDigit(letter) ? letter : ' ';
+
+        string[] words = prepared.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
    
         var dict = new Dictionary<string, int>();
