@@ -6,10 +6,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
 
+/// <summary>Задание №12.</summary>
 public class Task12_Palindrome : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Палиндром (без учёта регистра/пробелов)";
+    /// <summary>Описание задания.</summary>
     public string Description => "Проверить, является ли строка палиндромом.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Игнорировать регистр (ToLower/ToUpper)",
@@ -18,6 +22,7 @@ public class Task12_Palindrome : ITask
         "Пустая строка и строка из одного символа — палиндром"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("Введите строку: ");
