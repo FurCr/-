@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №19.</summary>
 public class Task19_StackQueue : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Стек и очередь";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сделать стек и очередь на массивах.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Push, Pop, Peek и Enqueue, Dequeue, Peek",
@@ -14,6 +18,7 @@ public class Task19_StackQueue : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         MyStack<int> stack = new MyStack<int>();
@@ -50,9 +55,12 @@ public class Task19_StackQueue : ITask
     private class MyStack<T>
     {
         private T[] items = new T[2];
+        /// <summary>Количество элементов.</summary>
         public int Count { get; private set; }
+        /// <summary>Количество элементов.</summary>
         public bool IsEmpty => Count == 0;
 
+        /// <summary>Выполняет действие.</summary>
         public void Push(T item)
         {
             if (Count == items.Length)
@@ -61,6 +69,7 @@ public class Task19_StackQueue : ITask
             Count++;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public T Pop()
         {
             if (IsEmpty)
@@ -71,6 +80,7 @@ public class Task19_StackQueue : ITask
             return item;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public T Peek()
         {
             if (IsEmpty)
@@ -83,9 +93,12 @@ public class Task19_StackQueue : ITask
     {
         private T[] items = new T[2];
         private int start;
+        /// <summary>Количество элементов.</summary>
         public int Count { get; private set; }
+        /// <summary>Количество элементов.</summary>
         public bool IsEmpty => Count == 0;
 
+        /// <summary>Выполняет действие.</summary>
         public void Enqueue(T item)
         {
             if (Count == items.Length)
@@ -100,6 +113,7 @@ public class Task19_StackQueue : ITask
             Count++;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public T Dequeue()
         {
             if (IsEmpty)
@@ -111,6 +125,7 @@ public class Task19_StackQueue : ITask
             return result;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public T Peek()
         {
             if (IsEmpty)
