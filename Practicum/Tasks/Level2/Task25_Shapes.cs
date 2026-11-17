@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №25.</summary>
 public class Task25_Shapes : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Фигуры и сортировка";
+    /// <summary>Описание задания.</summary>
     public string Description => "Посчитать площади и отсортировать фигуры.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "IShape с Area и Perimeter",
@@ -14,6 +18,7 @@ public class Task25_Shapes : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         List<IShape> shapes = new List<IShape>
@@ -47,8 +52,11 @@ public class Task25_Shapes : ITask
     private class Circle : IShape
     {
         private double radius;
+        /// <summary>Выполняет действие.</summary>
         public Circle(double radius) { this.radius = radius; }
+        /// <summary>Вычисляет площадь.</summary>
         public double Area() => Math.PI * radius * radius;
+        /// <summary>Вычисляет периметр.</summary>
         public double Perimeter() => 2 * Math.PI * radius;
     }
 
@@ -56,12 +64,15 @@ public class Task25_Shapes : ITask
     {
         private double width;
         private double height;
+        /// <summary>Выполняет действие.</summary>
         public Rectangle(double width, double height)
         {
             this.width = width;
             this.height = height;
         }
+        /// <summary>Вычисляет площадь.</summary>
         public double Area() => width * height;
+        /// <summary>Вычисляет периметр.</summary>
         public double Perimeter() => 2 * (width + height);
     }
 
@@ -69,12 +80,15 @@ public class Task25_Shapes : ITask
     {
         private double a;
         private double b;
+        /// <summary>Выполняет действие.</summary>
         public Triangle(double a, double b)
         {
             this.a = a;
             this.b = b;
         }
+        /// <summary>Вычисляет площадь.</summary>
         public double Area() => a * b / 2;
+        /// <summary>Вычисляет периметр.</summary>
         public double Perimeter() => a + b + Math.Sqrt(a * a + b * b);
     }
 }
