@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Practicum.Common;
 using Practicum.Tasks.Level1;
+using Practicum.Tasks.Level2;
 
 namespace Practicum.Menu;
+
 public class MenuRunner
 {
     public void Run()
@@ -14,21 +12,28 @@ public class MenuRunner
         {
             Console.Clear();
             Console.WriteLine("=== Практикум по C# ===");
-            Console.WriteLine("1. Уровень 1 — Базовый (задания 1–15)");
-            Console.WriteLine("2. Уровень 2 — Средний (задания 16–35)");
-            Console.WriteLine("3. Уровень 3 — Продвинутый (задания 36–50)");
+            Console.WriteLine("1. Уровень 1 — Базовый (1–15)");
+            Console.WriteLine("2. Уровень 2 — Средний (16–35)");
+            Console.WriteLine("3. Уровень 3 — Продвинутый (36–50)");
             Console.WriteLine("4. Выход");
-            Console.Write("\nВыберите уровень: ");
+            Console.Write("Выберите уровень: ");
 
-            var choice = Console.ReadLine();
+            string choice = Console.ReadLine() ?? "";
             switch (choice)
             {
                 case "1":
-                    RunLevel("Уровень 1: Базовый", Level1Registry.Tasks);
+                    RunLevel("Уровень 1: Базовый", Level1Registry.Tasks, 1);
                     break;
+                case "2":
+                    RunLevel("Уровень 2: Средний", Level2Registry.Tasks, 16);
+                    break;
+                case "3":
+                    Console.WriteLine("Задания третьего уровня пока не добавлены.");
+                    Console.ReadLine();
+                    break;
+                case "0":
                 case "4":
                 case "q":
-                case "0":
                     return;
                 default:
                     Console.WriteLine("Неверный выбор. Нажмите Enter...");
@@ -38,34 +43,35 @@ public class MenuRunner
         }
     }
 
-    private void RunLevel(string title, ITask[] tasks)
+    private void RunLevel(string title, ITask[] tasks, int firstNumber)
     {
         while (true)
         {
             Console.Clear();
-            Console.WriteLine($"--- {title} ---");
+            Console.WriteLine("--- " + title + " ---");
             for (int i = 0; i < tasks.Length; i++)
-            {
-                Console.WriteLine($"{i + 1}. {tasks[i].Title}");
-            }
+                Console.WriteLine((firstNumber + i) + ". " + tasks[i].Title);
+
             Console.WriteLine("0. Назад");
-            Console.Write("\nВыберите задание: ");
+            Console.Write("Выберите задание: ");
+            string input = Console.ReadLine() ?? "";
 
-            var input = Console.ReadLine();
-            if (input == "0") return;
+            if (input == "0")
+                return;
 
-            if (int.TryParse(input, out int n) && n >= 1 && n <= tasks.Length)
+            if (int.TryParse(input, out int number) &&
+                number >= firstNumber && number < firstNumber + tasks.Length)
             {
                 Console.Clear();
-                var task = tasks[n - 1];
-                ConsoleHelper.PrintTaskHeader($"{n}", task);
+                ITask task = tasks[number - firstNumber];
+                ConsoleHelper.PrintTaskHeader(number.ToString(), task);
                 try
                 {
                     task.Run();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Произошла ошибка: {ex.Message}");
+                    Console.WriteLine("Ошибка: " + ex.Message);
                 }
                 ConsoleHelper.Pause();
             }
