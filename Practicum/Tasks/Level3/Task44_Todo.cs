@@ -3,10 +3,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №44.</summary>
 public class Task44_Todo : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Список дел";
+    /// <summary>Описание задания.</summary>
     public string Description => "Добавление, просмотр, завершение и удаление задач.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "TaskItem, TaskRepository, TaskService",
@@ -14,6 +18,7 @@ public class Task44_Todo : ITask
         "Сохранение в tasks.json"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         TaskService service = new TaskService(new TaskRepository());
@@ -74,10 +79,14 @@ public class Task44_Todo : ITask
         }
     }
 
+    /// <summary>Выполняет действие.</summary>
     public class TaskItem
     {
+        /// <summary>Номер записи.</summary>
         public int Id { get; set; }
+        /// <summary>Название задания.</summary>
         public string Title { get; set; } = "";
+        /// <summary>Завершена ли задача.</summary>
         public bool IsDone { get; set; }
     }
 
@@ -86,6 +95,7 @@ public class Task44_Todo : ITask
         private List<TaskItem> tasks = new List<TaskItem>();
         private const string FileName = "tasks.json";
 
+        /// <summary>Выполняет действие.</summary>
         public TaskRepository()
         {
             if (!File.Exists(FileName)) return;
@@ -104,8 +114,10 @@ public class Task44_Todo : ITask
             }
         }
 
+        /// <summary>Выполняет действие.</summary>
         public List<TaskItem> GetAll() => tasks;
 
+        /// <summary>Выполняет действие.</summary>
         public void Add(string title)
         {
             int nextId = tasks.Count == 0 ? 1 : tasks.Max(t => t.Id) + 1;
@@ -113,6 +125,7 @@ public class Task44_Todo : ITask
             Save();
         }
 
+        /// <summary>Выполняет действие.</summary>
         public bool Complete(int id)
         {
             TaskItem? task = tasks.Find(t => t.Id == id);
@@ -122,6 +135,7 @@ public class Task44_Todo : ITask
             return true;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public bool Delete(int id)
         {
             TaskItem? task = tasks.Find(t => t.Id == id);
@@ -142,15 +156,20 @@ public class Task44_Todo : ITask
     {
         private TaskRepository repository;
 
+        /// <summary>Выполняет действие.</summary>
         public TaskService(TaskRepository repository)
         {
             this.repository = repository;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public void Add(string title) => repository.Add(title);
+        /// <summary>Выполняет действие.</summary>
         public bool Complete(int id) => repository.Complete(id);
+        /// <summary>Выполняет действие.</summary>
         public bool Delete(int id) => repository.Delete(id);
 
+        /// <summary>Выполняет действие.</summary>
         public void ShowAll()
         {
             List<TaskItem> tasks = repository.GetAll();
