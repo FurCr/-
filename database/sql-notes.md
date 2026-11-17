@@ -556,3 +556,30 @@ GO
 ### Вывод
 
 Скалярную функцию используют в SELECT, табличную — в FROM.
+
+## Задание 23 — ROW_NUMBER, RANK и DENSE_RANK
+
+### SQL
+
+```sql
+BEGIN TRANSACTION;
+-- Временно сделаем зарплату Петра равной зарплате Анны, чтобы показать одинаковый ранг.
+UPDATE Employees SET Salary = 65000 WHERE EmployeeId = 2;
+
+SELECT EmployeeName, DepartmentId, Salary,
+       ROW_NUMBER() OVER (ORDER BY Salary DESC) AS RowNumber,
+       RANK() OVER (PARTITION BY DepartmentId ORDER BY Salary DESC) AS SalaryRank,
+       DENSE_RANK() OVER (PARTITION BY DepartmentId ORDER BY Salary DESC) AS DenseSalaryRank
+FROM Employees
+ORDER BY DepartmentId, Salary DESC;
+
+ROLLBACK TRANSACTION;
+```
+
+### Результат
+
+Два сотрудника отдела 1 получают одинаковый RANK=1; следующий получает RANK=3, но DENSE_RANK=2. Изменение отменяется. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+DENSE_RANK не пропускает номера при одинаковых значениях.
