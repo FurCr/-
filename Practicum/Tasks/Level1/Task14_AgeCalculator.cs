@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
+
 public class Task14_AgeCalculator : ITask
 {
     public string Title => "Возраст по дате рождения";
@@ -20,40 +17,32 @@ public class Task14_AgeCalculator : ITask
     public void Run()
     {
         Console.Write("Введите дату рождения (например, 15.05.1990): ");
-        string input = Console.ReadLine() ?? "";
-
-        if (!DateTime.TryParse(input, out DateTime birthDate))
+        if (!DateTime.TryParse(Console.ReadLine(), out DateTime birth))
         {
-            Console.WriteLine("Ошибка: неверный формат даты.");
+            Console.WriteLine("Ошибка: неверная дата.");
             return;
         }
 
         DateTime today = DateTime.Today;
-        if (birthDate > today)
+        if (birth.Date > today)
         {
             Console.WriteLine("Ошибка: дата рождения не может быть в будущем.");
             return;
         }
 
-        int years = today.Year - birthDate.Year;
-        int months = today.Month - birthDate.Month;
-        int days = today.Day - birthDate.Day;
-
-        if (days < 0)
-        {
-            months--;
-       
-            int prevMonth = today.Month == 1 ? 12 : today.Month - 1;
-            int prevYear = today.Month == 1 ? today.Year - 1 : today.Year;
-            days += DateTime.DaysInMonth(prevYear, prevMonth);
-        }
-
-        if (months < 0)
-        {
+        int years = today.Year - birth.Year;
+        if (birth.AddYears(years) > today)
             years--;
-            months += 12;
+
+        DateTime date = birth.AddYears(years);
+        int months = 0;
+        while (date.AddMonths(1) <= today)
+        {
+            date = date.AddMonths(1);
+            months++;
         }
 
-        Console.WriteLine($"Возраст: {years} лет, {months} месяцев, {days} дней");
+        int days = (today - date).Days;
+        Console.WriteLine("Возраст: " + years + " лет, " + months + " месяцев, " + days + " дней");
     }
 }
