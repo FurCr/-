@@ -79,12 +79,12 @@ public class Task44_Todo : ITask
         }
     }
 
-    /// <summary>Выполняет действие.</summary>
+    /// <summary>Задача из списка дел.</summary>
     public class TaskItem
     {
         /// <summary>Номер записи.</summary>
         public int Id { get; set; }
-        /// <summary>Название задания.</summary>
+        /// <summary>Название задачи.</summary>
         public string Title { get; set; } = "";
         /// <summary>Завершена ли задача.</summary>
         public bool IsDone { get; set; }
@@ -95,7 +95,7 @@ public class Task44_Todo : ITask
         private List<TaskItem> tasks = new List<TaskItem>();
         private const string FileName = "tasks.json";
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Загружает задачи из файла.</summary>
         public TaskRepository()
         {
             if (!File.Exists(FileName)) return;
@@ -114,10 +114,10 @@ public class Task44_Todo : ITask
             }
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Возвращает список задач.</summary>
         public List<TaskItem> GetAll() => tasks;
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Добавляет задачу.</summary>
         public void Add(string title)
         {
             int nextId = tasks.Count == 0 ? 1 : tasks.Max(t => t.Id) + 1;
@@ -125,7 +125,7 @@ public class Task44_Todo : ITask
             Save();
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Отмечает задачу выполненной.</summary>
         public bool Complete(int id)
         {
             TaskItem? task = tasks.Find(t => t.Id == id);
@@ -135,7 +135,7 @@ public class Task44_Todo : ITask
             return true;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Удаляет задачу.</summary>
         public bool Delete(int id)
         {
             TaskItem? task = tasks.Find(t => t.Id == id);
@@ -156,20 +156,20 @@ public class Task44_Todo : ITask
     {
         private TaskRepository repository;
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт сервис задач.</summary>
         public TaskService(TaskRepository repository)
         {
             this.repository = repository;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Добавляет задачу.</summary>
         public void Add(string title) => repository.Add(title);
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Отмечает задачу выполненной.</summary>
         public bool Complete(int id) => repository.Complete(id);
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Удаляет задачу.</summary>
         public bool Delete(int id) => repository.Delete(id);
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Показывает список задач.</summary>
         public void ShowAll()
         {
             List<TaskItem> tasks = repository.GetAll();
