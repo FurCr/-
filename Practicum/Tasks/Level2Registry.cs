@@ -15,6 +15,7 @@ public static class Level2Registry
         new Task22_Params(),
         new Task23_Nullable(),
         new Task24_Animals(),
-        new Task25_Shapes()
+        new Task25_Shapes(),
+        new Task26_Discounts()
     };
 }
