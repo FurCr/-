@@ -121,17 +121,31 @@ git log --oneline
 
 ## Задание 50 — bisect
 
-В отдельном учебном репозитории создано 11 коммитов. Ошибка появилась в шестом.
+Проверка выполнена **в отдельном локальном учебном репозитории**. Создано 11 последовательных коммитов. В первых пяти `result.txt` содержал `10`, начиная с шестого — неверное `11`.
+
+Команды ручной проверки:
 
 ```bash
 git bisect start
 git bisect bad HEAD
-git bisect good <первый рабочий коммит>
-git bisect run sh -c 'grep -q "^10$" result.txt'
+git bisect good d7e0a31
+# Проверить result.txt на предложенном коммите:
+git bisect bad
+# Если результат 10 — коммит рабочий:
+git bisect good
+git bisect good
 git bisect reset
 ```
 
+Вывод реального последовательного поиска (каждую версию проверяли перед командой `good` или `bad`):
+
 ```text
-78ddfebf63a2defca7c0af2b9703101e30ee1b9d is the first bad commit
-bisect found first bad commit
+8485181 result.txt=11  -> git bisect bad
+3a603a5 result.txt=10  -> git bisect good
+56ded1d result.txt=10  -> git bisect good
+84851819b53c545f7cf40236d75c1ab9b5c4c8e6 is the first bad commit
+Previous HEAD position was 56ded1d docs: bisect practice step 5
+Switched to branch 'main'
 ```
+
+Первый ошибочный коммит — `8485181` (шестой из 11). Он найден ручными отметками `good` и `bad`, после `git bisect reset` исходная ветка восстановлена. Эта проверка проведена в учебной копии, не в истории `FurCr/-`.
