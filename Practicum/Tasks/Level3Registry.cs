@@ -11,6 +11,7 @@ public static class Level3Registry
         new Task38_ListBenchmark(),
         new Task39_Yield(),
         new Task40_AsyncDownload(),
-        new Task41_WhenAll()
+        new Task41_WhenAll(),
+        new Task42_Cancellation()
     };
 }
