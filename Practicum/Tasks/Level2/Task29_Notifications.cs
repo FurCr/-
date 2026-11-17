@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №29.</summary>
 public class Task29_Notifications : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Фабрика уведомлений";
+    /// <summary>Описание задания.</summary>
     public string Description => "Создать уведомления разных видов через фабрику.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "INotification с Send",
@@ -13,6 +17,7 @@ public class Task29_Notifications : ITask
         "NotificationFactory.Create"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         foreach (NotificationType type in Enum.GetValues<NotificationType>())
@@ -34,21 +39,25 @@ public class Task29_Notifications : ITask
 
     private class EmailNotification : INotification
     {
+        /// <summary>Отправляет уведомление.</summary>
         public void Send(string message) => Console.WriteLine("Email: " + message);
     }
 
     private class SmsNotification : INotification
     {
+        /// <summary>Отправляет уведомление.</summary>
         public void Send(string message) => Console.WriteLine("SMS: " + message);
     }
 
     private class PushNotification : INotification
     {
+        /// <summary>Отправляет уведомление.</summary>
         public void Send(string message) => Console.WriteLine("Push: " + message);
     }
 
     private static class NotificationFactory
     {
+        /// <summary>Выполняет действие.</summary>
         public static INotification Create(NotificationType type)
         {
             return type switch
