@@ -57,10 +57,10 @@ public class Task19_StackQueue : ITask
         private T[] items = new T[2];
         /// <summary>Количество элементов.</summary>
         public int Count { get; private set; }
-        /// <summary>Количество элементов.</summary>
+        /// <summary>Проверяет, пуста ли коллекция.</summary>
         public bool IsEmpty => Count == 0;
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Добавляет элемент в стек.</summary>
         public void Push(T item)
         {
             if (Count == items.Length)
@@ -69,7 +69,7 @@ public class Task19_StackQueue : ITask
             Count++;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Извлекает элемент из стека.</summary>
         public T Pop()
         {
             if (IsEmpty)
@@ -80,7 +80,7 @@ public class Task19_StackQueue : ITask
             return item;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Показывает первый элемент без удаления.</summary>
         public T Peek()
         {
             if (IsEmpty)
@@ -95,10 +95,10 @@ public class Task19_StackQueue : ITask
         private int start;
         /// <summary>Количество элементов.</summary>
         public int Count { get; private set; }
-        /// <summary>Количество элементов.</summary>
+        /// <summary>Проверяет, пуста ли коллекция.</summary>
         public bool IsEmpty => Count == 0;
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Добавляет элемент в очередь.</summary>
         public void Enqueue(T item)
         {
             if (Count == items.Length)
@@ -113,7 +113,7 @@ public class Task19_StackQueue : ITask
             Count++;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Извлекает элемент из очереди.</summary>
         public T Dequeue()
         {
             if (IsEmpty)
