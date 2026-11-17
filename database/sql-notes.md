@@ -389,3 +389,36 @@ ROLLBACK TRANSACTION;
 ### Вывод
 
 Сначала удаляем связанные назначения, затем сотрудника. DELETE без WHERE проверен на копии.
+
+## Задание 18 — Транзакции
+
+### SQL
+
+```sql
+DECLARE @OldSalary DECIMAL(10,2);
+SELECT @OldSalary = Salary FROM Employees WHERE EmployeeId = 1;
+SELECT EmployeeId, Salary AS BeforeChange FROM Employees WHERE EmployeeId = 1;
+
+BEGIN TRANSACTION;
+UPDATE Employees SET Salary = Salary + 1000 WHERE EmployeeId = 1;
+SELECT EmployeeId, Salary AS InsideRollback FROM Employees WHERE EmployeeId = 1;
+ROLLBACK TRANSACTION;
+SELECT EmployeeId, Salary AS AfterRollback FROM Employees WHERE EmployeeId = 1;
+
+BEGIN TRANSACTION;
+UPDATE Employees SET Salary = Salary + 1000 WHERE EmployeeId = 1;
+SELECT EmployeeId, Salary AS InsideCommit FROM Employees WHERE EmployeeId = 1;
+COMMIT TRANSACTION;
+SELECT EmployeeId, Salary AS AfterCommit FROM Employees WHERE EmployeeId = 1;
+
+UPDATE Employees SET Salary = @OldSalary WHERE EmployeeId = 1;
+SELECT EmployeeId, Salary AS Restored FROM Employees WHERE EmployeeId = 1;
+```
+
+### Результат
+
+65000 → 66000 → ROLLBACK до 65000; после COMMIT 66000; в конце возвращено 65000 для других заданий. (фактический запуск не проверен).
+
+### Вывод
+
+ROLLBACK отменяет изменения, COMMIT сохраняет их.
