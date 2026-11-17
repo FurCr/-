@@ -422,3 +422,32 @@ SELECT EmployeeId, Salary AS Restored FROM Employees WHERE EmployeeId = 1;
 ### Вывод
 
 ROLLBACK отменяет изменения, COMMIT сохраняет их.
+
+## Задание 19 — Представление VIEW
+
+### SQL
+
+```sql
+IF OBJECT_ID(N'dbo.vw_EmployeeDetails', N'V') IS NOT NULL
+    DROP VIEW dbo.vw_EmployeeDetails;
+GO
+CREATE VIEW dbo.vw_EmployeeDetails AS
+SELECT e.EmployeeName, d.DepartmentName, p.ProjectName, ep.Hours
+FROM Employees e
+INNER JOIN Departments d ON d.DepartmentId = e.DepartmentId
+INNER JOIN EmployeeProjects ep ON ep.EmployeeId = e.EmployeeId
+INNER JOIN Projects p ON p.ProjectId = ep.ProjectId;
+GO
+SELECT * FROM dbo.vw_EmployeeDetails;
+GO
+DROP VIEW dbo.vw_EmployeeDetails;
+GO
+```
+
+### Результат
+
+Представление содержит 14 строк назначений и затем удаляется. (фактический запуск не проверен).
+
+### Вывод
+
+VIEW сохраняет SQL-запрос для повторного использования.
