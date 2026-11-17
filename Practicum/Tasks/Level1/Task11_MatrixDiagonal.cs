@@ -7,10 +7,14 @@ using Practicum.Common;
 namespace Practicum.Tasks.Level1;
 
 
+/// <summary>Задание №11.</summary>
 public class Task11_MatrixDiagonal : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Диагональ матрицы N×N";
+    /// <summary>Описание задания.</summary>
     public string Description => "Найти сумму элементов главной диагонали матрицы N×N.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Размер N вводится пользователем (минимум 2)",
@@ -19,6 +23,7 @@ public class Task11_MatrixDiagonal : ITask
         "Вывести саму матрицу и сумму"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("Введите размер матрицы N (минимум 2): ");
