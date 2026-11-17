@@ -153,3 +153,22 @@ FROM Employees GROUP BY DepartmentId HAVING SUM(Salary) > 150000;
 ### Вывод
 
 HAVING проверяет агрегаты после группировки.
+
+## Задание 08 — INNER JOIN сотрудников и отделов
+
+### SQL
+
+```sql
+SELECT e.EmployeeName, d.DepartmentName, e.Salary
+FROM Employees e
+INNER JOIN Departments d ON e.DepartmentId = d.DepartmentId
+ORDER BY d.DepartmentName, e.Salary DESC;
+```
+
+### Результат
+
+Ожидается 10 сотрудников с названиями отделов. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+INNER JOIN выводит связанные записи двух таблиц.
