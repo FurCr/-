@@ -44,3 +44,23 @@ SELECT (SELECT COUNT(*) FROM Departments) AS DepartmentsCount,
 ### Вывод
 
 Данные добавлены через `INSERT INTO ... VALUES` в `init.sql`.
+
+## Задание 03 — SELECT и WHERE
+
+### SQL
+
+```sql
+SELECT EmployeeName, Salary FROM Employees WHERE Salary > 50000;
+SELECT EmployeeName, HireDate FROM Employees WHERE YEAR(HireDate) = 2023;
+SELECT EmployeeName FROM Employees WHERE EmployeeName LIKE N'А%';
+SELECT EmployeeName FROM Employees WHERE DepartmentId = 2;
+SELECT EmployeeName, Salary FROM Employees WHERE Salary BETWEEN 40000 AND 60000;
+```
+
+### Результат
+
+Ожидается соответственно 7, 2, 2, 3 и 6 строк. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Проверены разные условия WHERE.
