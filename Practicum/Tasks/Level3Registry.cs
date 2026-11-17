@@ -2,8 +2,10 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Класс заданий или тестов.</summary>
 public static class Level3Registry
 {
+    /// <summary>Список заданий.</summary>
     public static ITask[] Tasks { get; } = new ITask[]
     {
         new Task36_Duplicates(),
