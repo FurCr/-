@@ -64,3 +64,26 @@ SELECT EmployeeName, Salary FROM Employees WHERE Salary BETWEEN 40000 AND 60000;
 ### Вывод
 
 Проверены разные условия WHERE.
+
+## Задание 04 — ORDER BY и TOP
+
+### SQL
+
+```sql
+SELECT TOP (3) EmployeeName, Salary
+FROM Employees ORDER BY Salary DESC;
+
+SELECT TOP (5) EmployeeName, HireDate
+FROM Employees ORDER BY HireDate;
+
+SELECT EmployeeName, DepartmentId, Salary
+FROM Employees ORDER BY DepartmentId, Salary DESC;
+```
+
+### Результат
+
+По зарплате первые: Алексей Лебедев (90000), Пётр Сидоров (72000), Анна Иванова (65000). (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+TOP ограничивает количество строк, ORDER BY меняет порядок.
