@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №36.</summary>
 public class Task36_Duplicates : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Повторяющиеся числа";
+    /// <summary>Описание задания.</summary>
     public string Description => "Найти дубликаты двумя способами.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Использовать HashSet и Contains",
@@ -13,6 +17,7 @@ public class Task36_Duplicates : ITask
         "Сравнить результаты"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         List<int> numbers = new List<int> { 2, 4, 6, 2, 7, 4, 8, 2, 9, 8 };
