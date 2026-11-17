@@ -5,10 +5,14 @@ using System.Text;
 using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
+/// <summary>Задание №9.</summary>
 public class Task09_ArrayStats : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Массивы: min/max/sum/avg";
+    /// <summary>Описание задания.</summary>
     public string Description => "Для массива чисел найти минимум, максимум, сумму и среднее.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Заполнить массив случайными числами 1–100, размер 20",
@@ -17,6 +21,7 @@ public class Task09_ArrayStats : ITask
         "Пустой массив — обработать (вернуть ошибку или 0, но не падать)"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         int[] arr = new int[20];
