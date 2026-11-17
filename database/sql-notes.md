@@ -275,3 +275,29 @@ ORDER BY e.DepartmentId, e.EmployeeId;
 ### Вывод
 
 Скалярный подзапрос считает среднее отдельно для каждого отдела.
+
+## Задание 14 — EXISTS и NOT EXISTS
+
+### SQL
+
+```sql
+SELECT e.EmployeeId, e.EmployeeName
+FROM Employees e
+WHERE EXISTS (
+    SELECT 1 FROM EmployeeProjects ep WHERE ep.EmployeeId = e.EmployeeId
+);
+
+SELECT e.EmployeeId, e.EmployeeName
+FROM Employees e
+WHERE NOT EXISTS (
+    SELECT 1 FROM EmployeeProjects ep WHERE ep.EmployeeId = e.EmployeeId
+);
+```
+
+### Результат
+
+С проектами 9 сотрудников; без проектов — Наталья Соколова. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+EXISTS проверяет наличие связанных строк без JOIN.
