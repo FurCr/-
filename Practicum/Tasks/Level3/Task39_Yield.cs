@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №39.</summary>
 public class Task39_Yield : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "yield return";
+    /// <summary>Описание задания.</summary>
     public string Description => "Получить чётные числа без создания списка.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Метод IEnumerable<int> GetEvenNumbers",
@@ -13,6 +17,7 @@ public class Task39_Yield : ITask
         "Показать ленивый вывод"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.WriteLine("Создаём перечисление.");
