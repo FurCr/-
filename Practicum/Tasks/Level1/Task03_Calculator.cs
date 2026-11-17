@@ -6,10 +6,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
 
+/// <summary>Задание №3.</summary>
 public class Task03_Calculator : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Калькулятор с делением на ноль";
+    /// <summary>Описание задания.</summary>
     public string Description => "Принимает два числа и оператор (+, -, *, /), выводит результат. Обработать деление на ноль.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Использовать switch для оператора",
@@ -18,6 +22,7 @@ public class Task03_Calculator : ITask
         "Ввод чисел — через double.Parse или TryParse"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("Введите первое число: ");
