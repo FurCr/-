@@ -124,3 +124,19 @@ commit 4ad9f61 docs: recovery practice
 ```
 
 В удалённый репозиторий тег ещё не отправлен.
+
+## Задание 49 — reflog
+
+В отдельном учебном локальном репозитории:
+
+```text
+Создан коммит: 4ad9f61 docs: recovery practice
+git reset --hard HEAD~1
+git reflog
+5bbef59 reset: moving to HEAD~1
+4ad9f61 commit: docs: recovery practice
+git reset --hard 4ad9f61
+git log --oneline
+4ad9f61 docs: recovery practice
+5bbef59 init: local git exercise
+```
