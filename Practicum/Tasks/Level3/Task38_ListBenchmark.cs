@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №38.</summary>
 public class Task38_ListBenchmark : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "List и LinkedList";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сравнить вставку элементов в середину списка.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "100000 элементов",
@@ -13,6 +17,7 @@ public class Task38_ListBenchmark : ITask
         "Stopwatch и объяснение"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         List<int> list = new List<int>();
