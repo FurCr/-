@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №22.</summary>
 public class Task22_Params : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "params и перегрузка";
+    /// <summary>Описание задания.</summary>
     public string Description => "Методы для подсчёта суммы чисел.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Sum(params int[])",
@@ -14,6 +18,7 @@ public class Task22_Params : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         int[] values = { 1, 2, 3 };
