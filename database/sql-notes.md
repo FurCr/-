@@ -521,3 +521,38 @@ GO
 ### Вывод
 
 Процедуры принимают входной и выходной параметры.
+
+## Задание 22 — Скалярная и табличная функции
+
+### SQL
+
+```sql
+CREATE OR ALTER FUNCTION dbo.fn_GetAnnualSalary(@MonthlySalary DECIMAL(10,2))
+RETURNS DECIMAL(12,2)
+AS
+BEGIN
+    RETURN @MonthlySalary * 12;
+END;
+GO
+CREATE OR ALTER FUNCTION dbo.fn_GetEmployeesBySalaryRange(
+    @Min DECIMAL(10,2), @Max DECIMAL(10,2))
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT EmployeeName, Salary FROM Employees
+    WHERE Salary BETWEEN @Min AND @Max
+);
+GO
+SELECT EmployeeName, dbo.fn_GetAnnualSalary(Salary) AS AnnualSalary FROM Employees;
+SELECT * FROM dbo.fn_GetEmployeesBySalaryRange(50000, 70000);
+GO
+```
+
+### Результат
+
+Годовая зарплата равна месячной × 12; табличная функция выводит сотрудников в диапазоне 50000–70000. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Скалярную функцию используют в SELECT, табличную — в FROM.
