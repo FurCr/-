@@ -87,3 +87,25 @@ FROM Employees ORDER BY DepartmentId, Salary DESC;
 ### Вывод
 
 TOP ограничивает количество строк, ORDER BY меняет порядок.
+
+## Задание 05 — Агрегатные функции
+
+### SQL
+
+```sql
+SELECT COUNT(*) AS EmployeesCount,
+       SUM(Salary) AS TotalSalary,
+       ROUND(AVG(Salary), 2) AS AverageSalary,
+       MIN(Salary) AS MinimumSalary,
+       MAX(Salary) AS MaximumSalary,
+       SUM(CASE WHEN Salary > 50000 THEN 1 ELSE 0 END) AS Over50000
+FROM Employees;
+```
+
+### Результат
+
+10 сотрудников; сумма 589000; средняя 58900; минимум 43000; максимум 90000; зарплата выше 50000 у 7. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+COUNT, SUM, AVG, MIN и MAX дают общую статистику.
