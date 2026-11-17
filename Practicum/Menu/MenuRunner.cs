@@ -34,6 +34,7 @@ public class MenuRunner
                 case "0":
                 case "4":
                 case "q":
+                case "Q":
                     return;
                 default:
                     Console.WriteLine("Неверный выбор. Нажмите Enter...");
@@ -56,7 +57,7 @@ public class MenuRunner
             Console.Write("Выберите задание: ");
             string input = Console.ReadLine() ?? "";
 
-            if (input == "0")
+            if (input == "0" || input == "q")
                 return;
 
             if (int.TryParse(input, out int number) &&
