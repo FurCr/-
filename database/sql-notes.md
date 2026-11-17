@@ -253,3 +253,25 @@ WHERE Salary = (SELECT MAX(Salary) FROM Employees);
 ### Вывод
 
 Подзапрос вычисляет значение для сравнения в WHERE.
+
+## Задание 13 — Скалярный подзапрос
+
+### SQL
+
+```sql
+SELECT e.EmployeeName, e.DepartmentId, e.Salary,
+       (SELECT AVG(x.Salary) FROM Employees x
+        WHERE x.DepartmentId = e.DepartmentId) AS DepartmentAverage,
+       ROUND(e.Salary - (SELECT AVG(x.Salary) FROM Employees x
+                         WHERE x.DepartmentId = e.DepartmentId), 2) AS Difference
+FROM Employees e
+ORDER BY e.DepartmentId, e.EmployeeId;
+```
+
+### Результат
+
+По 1 строке на каждого из 10 сотрудников; разница с зарплатой его отдела. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Скалярный подзапрос считает среднее отдельно для каждого отдела.
