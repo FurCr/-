@@ -23,6 +23,7 @@ public class Task14_AgeCalculator : ITask
             return;
         }
 
+        birth = birth.Date;
         DateTime today = DateTime.Today;
         if (birth.Date > today)
         {
