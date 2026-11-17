@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №47.</summary>
 public class Task47_Git : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Git: rebase -i";
+    /// <summary>Описание задания.</summary>
     public string Description => "Объединить четыре коммита.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Ветка feature/squash-demo",
@@ -13,6 +17,7 @@ public class Task47_Git : ITask
         "История до и после в git-notes.md"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.WriteLine("Результат упражнения — в git-notes.md.");
