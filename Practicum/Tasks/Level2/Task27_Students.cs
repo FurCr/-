@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №27.</summary>
 public class Task27_Students : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Сортировка студентов";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сортировка студентов по оценке и по имени.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "IComparable<Student> по убыванию балла",
@@ -13,6 +17,7 @@ public class Task27_Students : ITask
         "Показать обе сортировки"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         List<Student> students = new List<Student>
@@ -40,15 +45,19 @@ public class Task27_Students : ITask
 
     private class Student : IComparable<Student>
     {
+        /// <summary>Имя.</summary>
         public string Name { get; }
+        /// <summary>Средняя оценка.</summary>
         public double AverageGrade { get; }
 
+        /// <summary>Выполняет действие.</summary>
         public Student(string name, double averageGrade)
         {
             Name = name;
             AverageGrade = averageGrade;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public int CompareTo(Student? other)
         {
             if (other == null) return -1;
@@ -58,6 +67,7 @@ public class Task27_Students : ITask
 
     private class ByNameComparer : IComparer<Student>
     {
+        /// <summary>Выполняет действие.</summary>
         public int Compare(Student? a, Student? b)
         {
             return string.Compare(a?.Name, b?.Name, StringComparison.CurrentCulture);
