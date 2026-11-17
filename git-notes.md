@@ -2,11 +2,26 @@
 
 ## Задание 15 — ветки и merge
 
+Схема действий, соответствующая сохранённой истории Git:
+
 ```bash
+git switch main
 git switch -c feature/git-basics
+# Изменить строку в README.md
+git add README.md
+git commit -m "docs: change line in branch"
+git switch main
+# Изменить ту же строку README.md по-другому
+git add README.md
+git commit -m "docs: change line in main"
 git merge feature/git-basics
+# После конфликта вручную исправить README.md
+git add README.md
+git commit -m "merge: resolve conflict in README"
 git log --graph --oneline --all
 ```
+
+В отдельном новом репозитории начало сценария выполняется через `git init -b main`. Команды выше показаны для уже созданного репозитория.
 
 Из первоначальной истории:
 
@@ -17,7 +32,7 @@ a7172e1 docs: add line for git basics
 604b698 docs: change line in main
 ```
 
-При конфликте нужно исправить строки с маркерами конфликта и затем сделать коммит.
+При конфликте удаляются маркеры `<<<<<<<`, `=======`, `>>>>>>>` и сохраняется нужный вариант текста.
 
 ## Задание 35 — Pull Request и rebase
 
