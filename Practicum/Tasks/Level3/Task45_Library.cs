@@ -37,17 +37,17 @@ public class Task45_Library : ITask
     }
 }
 
-/// <summary>Выполняет действие.</summary>
+/// <summary>Книга.</summary>
 public class Book
 {
-    /// <summary>Название задания.</summary>
+    /// <summary>Название книги.</summary>
     public string Title { get; }
-    /// <summary>Выполняет действие.</summary>
+    /// <summary>Автор книги.</summary>
     public string Author { get; }
     /// <summary>Доступна ли книга.</summary>
     public bool IsAvailable { get; internal set; } = true;
 
-    /// <summary>Выполняет действие.</summary>
+    /// <summary>Создаёт книгу.</summary>
     public Book(string title, string author)
     {
         Title = title;
@@ -55,7 +55,7 @@ public class Book
     }
 }
 
-/// <summary>Выполняет действие.</summary>
+/// <summary>Читатель.</summary>
 public class Reader
 {
     /// <summary>Имя.</summary>
@@ -63,19 +63,19 @@ public class Reader
     /// <summary>Выданные книги.</summary>
     public List<Book> BorrowedBooks { get; } = new List<Book>();
 
-    /// <summary>Выполняет действие.</summary>
+    /// <summary>Создаёт читателя.</summary>
     public Reader(string name)
     {
         Name = name;
     }
 }
 
-/// <summary>Выполняет действие.</summary>
+/// <summary>Библиотека.</summary>
 public class Library
 {
     private List<Book> books = new List<Book>();
 
-    /// <summary>Выполняет действие.</summary>
+    /// <summary>Добавляет книгу.</summary>
     public void AddBook(Book book)
     {
         books.Add(book);
