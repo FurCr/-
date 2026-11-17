@@ -16,6 +16,7 @@ public static class Level3Registry
         new Task43_Exceptions(),
         new Task44_Todo(),
         new Task45_Library(),
-        new Task46_Git()
+        new Task46_Git(),
+        new Task47_Git()
     };
 }

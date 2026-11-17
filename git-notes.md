@@ -86,3 +86,25 @@ git switch main
 git stash pop
 После pop: git stash list пуст, строка из README восстановлена.
 ```
+
+## Задание 47 — rebase -i
+
+Проверка в отдельном локальном Git-репозитории.
+
+До `git rebase -i HEAD~4`:
+
+```text
+420a549 docs: note 4
+fa823db docs: note 3
+501f187 docs: note 2
+195ad8f docs: note 1
+```
+
+После объединения:
+
+```text
+ea5e5b2 docs: note 1
+5bbef59 init: local git exercise
+```
+
+В ветке GitHub `feature/squash-demo` четыре коммита тоже свёрнуты в один.
