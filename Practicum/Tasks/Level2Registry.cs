@@ -23,6 +23,7 @@ public static class Level2Registry
         new Task30_BankAccount(),
         new Task31_FileWriter(),
         new Task32_Temperature(),
-        new Task33_Employees()
+        new Task33_Employees(),
+        new Task34_WordGroups()
     };
 }
