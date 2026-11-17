@@ -13,6 +13,7 @@ public static class Level3Registry
         new Task40_AsyncDownload(),
         new Task41_WhenAll(),
         new Task42_Cancellation(),
-        new Task43_Exceptions()
+        new Task43_Exceptions(),
+        new Task44_Todo()
     };
 }
