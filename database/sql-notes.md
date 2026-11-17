@@ -130,3 +130,26 @@ ORDER BY AverageSalary DESC;
 ### Вывод
 
 GROUP BY собирает сотрудников каждого отдела в одну группу.
+
+## Задание 07 — GROUP BY и HAVING
+
+### SQL
+
+```sql
+SELECT DepartmentId, COUNT(*) AS EmployeesCount
+FROM Employees GROUP BY DepartmentId HAVING COUNT(*) > 2;
+
+SELECT DepartmentId, AVG(Salary) AS AverageSalary
+FROM Employees GROUP BY DepartmentId HAVING AVG(Salary) > 55000;
+
+SELECT DepartmentId, SUM(Salary) AS TotalSalary
+FROM Employees GROUP BY DepartmentId HAVING SUM(Salary) > 150000;
+```
+
+### Результат
+
+Больше двух сотрудников: отделы 1 и 2; средняя выше 55000: 1, 2, 4; сумма выше 150000: 1 и 2. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+HAVING проверяет агрегаты после группировки.
