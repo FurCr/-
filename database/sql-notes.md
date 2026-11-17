@@ -672,7 +672,9 @@ CASE формирует значения по условиям без измен
 
 ```sql
 SELECT EmployeeName, HireDate,
-       DATEDIFF(YEAR, HireDate, GETDATE()) AS YearsWorked,
+       DATEDIFF(YEAR, HireDate, GETDATE())
+       - CASE WHEN DATEADD(YEAR, DATEDIFF(YEAR, HireDate, GETDATE()), HireDate)
+                    > CAST(GETDATE() AS DATE) THEN 1 ELSE 0 END AS YearsWorked,
        DATEDIFF(MONTH, HireDate, GETDATE()) AS MonthsWorked,
        DATEADD(YEAR, 1, HireDate) AS OneYearAfterHire,
        FORMAT(HireDate, 'dd.MM.yyyy') AS FormattedHireDate
@@ -686,4 +688,4 @@ ORDER BY HireDate;
 
 ### Вывод
 
-DATEDIFF считает границы периодов, DATEADD добавляет год, FORMAT меняет отображение даты.
+Полные годы считаются с учётом даты годовщины; DATEADD добавляет год, FORMAT меняет отображение даты.
