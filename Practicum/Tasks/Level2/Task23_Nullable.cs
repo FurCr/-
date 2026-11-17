@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №23.</summary>
 public class Task23_Nullable : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Nullable-типы";
+    /// <summary>Описание задания.</summary>
     public string Description => "Показать ??, ?. и проверку nullable.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "FindValue возвращает int?",
@@ -19,6 +23,7 @@ public class Task23_Nullable : ITask
         { "one", 10 }, { "two", 20 }
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         int? found = FindValue("one");
@@ -44,6 +49,7 @@ public class Task23_Nullable : ITask
 
     private class Student
     {
+        /// <summary>Выполняет действие.</summary>
         public string Name { get; set; } = "";
     }
 }
