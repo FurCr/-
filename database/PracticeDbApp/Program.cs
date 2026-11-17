@@ -14,6 +14,7 @@ while (true)
     Console.WriteLine("\n=== PracticeDB ===");
     Console.WriteLine("1. Список сотрудников (задание 28)");
     Console.WriteLine("2. Добавить сотрудника (задание 29)");
+    Console.WriteLine("3. Отчёт по отделам (задание 30)");
     Console.WriteLine("0. Выход");
     Console.Write("Выберите действие: ");
 
@@ -44,6 +45,10 @@ while (true)
         {
             await AddEmployee(name, salary, departmentId);
         }
+    }
+    else if (choice == "3")
+    {
+        await ShowReport(connectionString);
     }
     else
     {
@@ -128,6 +133,46 @@ static async Task AddEmployee(string name, decimal salary, int departmentId)
     catch (SqlException ex) when (ex.Number == 547)
     {
         Console.WriteLine("Такого отдела нет.");
+    }
+    catch (SqlException ex)
+    {
+        Console.WriteLine("Ошибка SQL Server: " + ex.Message);
+    }
+}
+
+static async Task ShowReport(string connectionString)
+{
+    try
+    {
+        using SqlConnection db = new SqlConnection(connectionString);
+        await db.OpenAsync();
+
+        using SqlCommand command = new SqlCommand(
+            @"SELECT d.DepartmentName,
+                     COUNT(e.EmployeeId) AS EmpCount,
+                     AVG(e.Salary) AS AvgSalary
+              FROM Departments d
+              LEFT JOIN Employees e ON e.DepartmentId = d.DepartmentId
+              GROUP BY d.DepartmentName
+              ORDER BY d.DepartmentName", db);
+
+        using SqlDataReader reader = await command.ExecuteReaderAsync();
+        Console.WriteLine($"{"Отдел",-22} | {"Сотрудников",12} | {"Средняя зарплата",18}");
+        Console.WriteLine(new string('-', 60));
+
+        bool found = false;
+        while (await reader.ReadAsync())
+        {
+            found = true;
+            string department = reader.GetString(0);
+            int count = reader.GetInt32(1);
+            string average = reader.IsDBNull(2) ? "N/A" : reader.GetDecimal(2).ToString("F2");
+
+            Console.WriteLine($"{department,-22} | {count,12} | {average,18}");
+        }
+
+        if (!found)
+            Console.WriteLine("Отделов нет.");
     }
     catch (SqlException ex)
     {
