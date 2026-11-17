@@ -31,7 +31,7 @@ public class Task38_ListBenchmark : ITask
 
         System.Diagnostics.Stopwatch timer = System.Diagnostics.Stopwatch.StartNew();
         for (int i = 0; i < 1000; i++)
-            list.Insert(list.Count / 2, i);
+            list.Insert(50000 + i, i);
         timer.Stop();
         double time1 = timer.Elapsed.TotalMilliseconds;
 
@@ -47,6 +47,7 @@ public class Task38_ListBenchmark : ITask
 
         Console.WriteLine("List: " + time1.ToString("F3") + " мс");
         Console.WriteLine("LinkedList: " + time2.ToString("F3") + " мс");
+        Console.WriteLine("Результаты совпадают: " + list.SequenceEqual(linked));
 
         // LinkedList быстрее вставляет по найденному узлу, но поиск середины требует прохода.
     }
