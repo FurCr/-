@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №28.</summary>
 public class Task28_Points : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Сравнение точек";
+    /// <summary>Описание задания.</summary>
     public string Description => "Проверить равенство точек и работу HashSet.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "IEquatable<Point> и Equals(object)",
@@ -13,6 +17,7 @@ public class Task28_Points : ITask
         "Проверить дубликаты в HashSet"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Point first = new Point(2, 3);
@@ -31,25 +36,31 @@ public class Task28_Points : ITask
 
     private class Point : IEquatable<Point>
     {
+        /// <summary>Выполняет действие.</summary>
         public int X { get; }
+        /// <summary>Выполняет действие.</summary>
         public int Y { get; }
 
+        /// <summary>Выполняет действие.</summary>
         public Point(int x, int y)
         {
             X = x;
             Y = y;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public bool Equals(Point? other)
         {
             return other != null && X == other.X && Y == other.Y;
         }
 
+        /// <summary>Выполняет действие.</summary>
         public override bool Equals(object? obj)
         {
             return obj is Point other && Equals(other);
         }
 
+        /// <summary>Выполняет действие.</summary>
         public override int GetHashCode()
         {
             return HashCode.Combine(X, Y);
