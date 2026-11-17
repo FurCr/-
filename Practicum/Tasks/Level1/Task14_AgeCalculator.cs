@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
 
+/// <summary>Задание №14.</summary>
 public class Task14_AgeCalculator : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Возраст по дате рождения";
+    /// <summary>Описание задания.</summary>
     public string Description => "По дате рождения вычислить точный возраст в годах, месяцах и днях.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Ввод даты через DateTime.TryParse (или TryParseExact)",
@@ -14,6 +18,7 @@ public class Task14_AgeCalculator : ITask
         "Некорректная дата — сообщение об ошибке, не падать"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("Введите дату рождения (например, 15.05.1990): ");
