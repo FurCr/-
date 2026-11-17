@@ -108,3 +108,19 @@ ea5e5b2 docs: note 1
 ```
 
 В ветке GitHub `feature/squash-demo` четыре коммита тоже свёрнуты в один.
+
+## Задание 48 — аннотированный тег
+
+В отдельном учебном локальном репозитории:
+
+```text
+git tag -a v1.0.0 -m "Release v1.0.0"
+git tag
+v1.0.0
+git show v1.0.0 --no-patch
+tag v1.0.0
+Release v1.0.0
+commit 4ad9f61 docs: recovery practice
+```
+
+В удалённый репозиторий тег ещё не отправлен.
