@@ -13,7 +13,7 @@ public class Task22_Params : ITask
     public string[] Requirements => new[]
     {
         "Sum(params int[])",
-        "Перегрузка для последовательности чисел",
+        "Перегрузка для списка чисел",
         "Примеры с числами, массивом и пустым вызовом"
     };
 
@@ -24,7 +24,7 @@ public class Task22_Params : ITask
         int[] values = { 1, 2, 3 };
         Console.WriteLine("Числа: " + Sum(1, 2, 3));
         Console.WriteLine("Массив: " + Sum(values));
-        Console.WriteLine("Перегрузка: " + Sum((IEnumerable<int>)values));
+        Console.WriteLine("Список: " + Sum(new List<int> { 1, 2, 3 }));
         Console.WriteLine("Без чисел: " + Sum());
     }
 
@@ -36,8 +36,8 @@ public class Task22_Params : ITask
         return result;
     }
 
-    // params int[] и int[] имеют одну сигнатуру, поэтому перегрузка принимает IEnumerable<int>.
-    private static int Sum(IEnumerable<int> numbers)
+    // params int[] и int[] — одна сигнатура, поэтому перегрузка принимает List<int>.
+    private static int Sum(List<int> numbers)
     {
         int result = 0;
         foreach (int number in numbers)
