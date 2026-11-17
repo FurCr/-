@@ -22,6 +22,7 @@ public static class Level2Registry
         new Task29_Notifications(),
         new Task30_BankAccount(),
         new Task31_FileWriter(),
-        new Task32_Temperature()
+        new Task32_Temperature(),
+        new Task33_Employees()
     };
 }
