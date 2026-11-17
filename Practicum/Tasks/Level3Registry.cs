@@ -10,6 +10,7 @@ public static class Level3Registry
         new Task37_Fibonacci(),
         new Task38_ListBenchmark(),
         new Task39_Yield(),
-        new Task40_AsyncDownload()
+        new Task40_AsyncDownload(),
+        new Task41_WhenAll()
     };
 }
