@@ -71,3 +71,18 @@ a7a25d6 feat: task 35 - git
 7d14070 feat: task 34 - word groups
 1e114db feat: task 33 - employees
 ```
+
+## Задание 46 — stash
+
+Проверка в отдельном локальном Git-репозитории:
+
+```text
+git stash
+Saved working directory and index state On main: task 46 temporary edit
+git stash list
+stash@{0}: On main: task 46 temporary edit
+git switch -c feature/stash-demo
+git switch main
+git stash pop
+После pop: git stash list пуст, строка из README восстановлена.
+```
