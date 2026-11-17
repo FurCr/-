@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №41.</summary>
 public class Task41_WhenAll : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Task.WhenAll";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сравнить последовательные и параллельные задачи.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "WorkAsync с задержкой 500 мс",
@@ -13,6 +17,7 @@ public class Task41_WhenAll : ITask
         "10 вызовов через Task.WhenAll"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         RunAsync().GetAwaiter().GetResult();
