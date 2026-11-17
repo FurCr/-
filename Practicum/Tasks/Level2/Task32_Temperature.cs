@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №32.</summary>
 public class Task32_Temperature : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Свойства с проверкой";
+    /// <summary>Описание задания.</summary>
     public string Description => "Проверить температуру и перевести в Фаренгейты.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Celsius не ниже -273.15",
@@ -13,6 +17,7 @@ public class Task32_Temperature : ITask
         "Вычисляемое Fahrenheit"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Temperature temperature = new Temperature();
@@ -34,6 +39,7 @@ public class Task32_Temperature : ITask
     {
         private decimal celsius;
 
+        /// <summary>Температура по Цельсию.</summary>
         public decimal Celsius
         {
             get => celsius;
@@ -45,6 +51,7 @@ public class Task32_Temperature : ITask
             }
         }
 
+        /// <summary>Температура по Фаренгейту.</summary>
         public decimal Fahrenheit => Celsius * 9m / 5m + 32m;
     }
 }
