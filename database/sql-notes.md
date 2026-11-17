@@ -325,3 +325,33 @@ UNION — 6 уникальных сотрудников; UNION ALL — 10 стр
 ### Вывод
 
 UNION убирает дубликаты, UNION ALL оставляет их.
+
+## Задание 16 — UPDATE зарплат и даты
+
+### SQL
+
+```sql
+BEGIN TRANSACTION;
+
+SELECT EmployeeId, EmployeeName, Salary FROM Employees WHERE DepartmentId = 1;
+UPDATE Employees SET Salary = ROUND(Salary * 1.10, 2) WHERE DepartmentId = 1;
+SELECT EmployeeId, EmployeeName, Salary FROM Employees WHERE DepartmentId = 1;
+
+SELECT EmployeeId, Salary FROM Employees WHERE HireDate < '2022-01-01';
+UPDATE Employees SET Salary = Salary + 5000 WHERE HireDate < '2022-01-01';
+SELECT EmployeeId, Salary FROM Employees WHERE HireDate < '2022-01-01';
+
+SELECT EmployeeId, HireDate FROM Employees WHERE EmployeeId = 4;
+UPDATE Employees SET HireDate = DATEADD(DAY, 1, HireDate) WHERE EmployeeId = 4;
+SELECT EmployeeId, HireDate FROM Employees WHERE EmployeeId = 4;
+
+ROLLBACK TRANSACTION;
+```
+
+### Результат
+
+Внутри транзакции меняются только выбранные строки; ROLLBACK возвращает исходные данные. (фактический запуск не проверен).
+
+### Вывод
+
+UPDATE с WHERE меняет нужные записи; откат оставляет базу неизменной.
