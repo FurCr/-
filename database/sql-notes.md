@@ -172,3 +172,22 @@ ORDER BY d.DepartmentName, e.Salary DESC;
 ### Вывод
 
 INNER JOIN выводит связанные записи двух таблиц.
+
+## Задание 09 — LEFT JOIN без проектов
+
+### SQL
+
+```sql
+SELECT e.EmployeeId, e.EmployeeName
+FROM Employees e
+LEFT JOIN EmployeeProjects ep ON ep.EmployeeId = e.EmployeeId
+WHERE ep.EmployeeId IS NULL;
+```
+
+### Результат
+
+Наталья Соколова (EmployeeId = 9). (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+LEFT JOIN позволяет найти сотрудника без назначения на проект.
