@@ -2,8 +2,10 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Класс заданий или тестов.</summary>
 public static class Level2Registry
 {
+    /// <summary>Список заданий.</summary>
     public static ITask[] Tasks { get; } = new ITask[]
     {
         new Task16_StringExtensions(),
