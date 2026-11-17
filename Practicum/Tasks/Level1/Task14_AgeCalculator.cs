@@ -37,13 +37,10 @@ public class Task14_AgeCalculator : ITask
 
         DateTime date = birth.AddYears(years);
         int months = 0;
-        while (date.AddMonths(1) <= today)
-        {
-            date = date.AddMonths(1);
+        while (date.AddMonths(months + 1) <= today)
             months++;
-        }
 
-        int days = (today - date).Days;
+        int days = (today - date.AddMonths(months)).Days;
         Console.WriteLine("Возраст: " + years + " лет, " + months + " месяцев, " + days + " дней");
     }
 }
