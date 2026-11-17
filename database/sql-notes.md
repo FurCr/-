@@ -191,3 +191,24 @@ WHERE ep.EmployeeId IS NULL;
 ### Вывод
 
 LEFT JOIN позволяет найти сотрудника без назначения на проект.
+
+## Задание 10 — Четыре таблицы через JOIN
+
+### SQL
+
+```sql
+SELECT e.EmployeeName, d.DepartmentName, p.ProjectName, ep.Hours
+FROM Employees e
+INNER JOIN Departments d ON d.DepartmentId = e.DepartmentId
+INNER JOIN EmployeeProjects ep ON ep.EmployeeId = e.EmployeeId
+INNER JOIN Projects p ON p.ProjectId = ep.ProjectId
+ORDER BY d.DepartmentName, e.EmployeeName, p.ProjectName;
+```
+
+### Результат
+
+14 строк назначений с именем, отделом, проектом и часами. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Соединены четыре таблицы по внешним ключам.
