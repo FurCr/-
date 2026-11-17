@@ -6,10 +6,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
 
+/// <summary>Задание №5.</summary>
 public class Task05_MultiplicationTable : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Таблица умножения 10×10";
+    /// <summary>Описание задания.</summary>
     public string Description => "Вывести таблицу умножения 10×10.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Использовать вложенные циклы for",
@@ -17,6 +21,7 @@ public class Task05_MultiplicationTable : ITask
         "Заголовки строк/столбцов — не обязательны, но приветствуются"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("    "); 
