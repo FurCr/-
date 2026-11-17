@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №43.</summary>
 public class Task43_Exceptions : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Несколько исключений";
+    /// <summary>Описание задания.</summary>
     public string Description => "Проверить разные catch и finally.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "FormatException, DivideByZeroException, CustomException",
@@ -13,6 +17,7 @@ public class Task43_Exceptions : ITask
         "finally выполняется всегда"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         string[] cases = { "abc", "zero", "custom" };
@@ -58,6 +63,7 @@ public class Task43_Exceptions : ITask
     // Общий catch должен быть последним, иначе специальные не выполнятся.
     private class CustomException : Exception
     {
+        /// <summary>Выполняет действие.</summary>
         public CustomException(string message) : base(message) { }
     }
 }
