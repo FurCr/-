@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №20.</summary>
 public class Task20_Generics : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Обобщённые методы";
+    /// <summary>Описание задания.</summary>
     public string Description => "Обмен значений и поиск большего для разных типов.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Swap<T> с ref",
@@ -14,6 +18,7 @@ public class Task20_Generics : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         int a = 4, b = 9;
