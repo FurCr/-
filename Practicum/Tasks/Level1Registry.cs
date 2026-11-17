@@ -9,6 +9,7 @@ namespace Practicum.Tasks.Level1;
 /// <summary>Регистрирует все задания уровня 1.</summary>
 public static class Level1Registry
 {
+    /// <summary>Список заданий.</summary>
     public static ITask[] Tasks { get; } = new ITask[]
     {
         new Task01_HelloWorld(),
