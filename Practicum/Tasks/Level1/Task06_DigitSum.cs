@@ -1,7 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
@@ -27,27 +23,26 @@ public class Task06_DigitSum : ITask
             return;
         }
 
-        Console.WriteLine($"Способ 1 (строка): {SumByString(n)}");
-        Console.WriteLine($"Способ 2 (арифметика): {SumByArithmetic(n)}");
+        Console.WriteLine("Способ 1 (строка): " + SumByString(n));
+        Console.WriteLine("Способ 2 (арифметика): " + SumByArithmetic(n));
     }
 
     private int SumByString(long n)
     {
-        string s = Math.Abs(n).ToString(); 
+        string text = n.ToString().TrimStart('-');
         int sum = 0;
-        foreach (char c in s)
-            sum += int.Parse(c.ToString());
+        foreach (char digit in text)
+            sum += digit - '0';
         return sum;
     }
 
     private int SumByArithmetic(long n)
     {
-        n = Math.Abs(n);
         int sum = 0;
-        while (n > 0)
+        while (n != 0)
         {
-            sum += (int)(n % 10); 
-            n /= 10;              
+            sum += (int)Math.Abs(n % 10);
+            n /= 10;
         }
         return sum;
     }
