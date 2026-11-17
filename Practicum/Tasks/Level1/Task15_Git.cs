@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
 
+/// <summary>Задание №15.</summary>
 public class Task15_Git : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Git: ветки и merge";
+    /// <summary>Описание задания.</summary>
     public string Description => "Создать ветку, выполнить merge и решить конфликт.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "git init, commit, branch",
@@ -13,6 +17,7 @@ public class Task15_Git : ITask
         "История в git-notes.md"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.WriteLine("Результат задания — в git-notes.md.");
