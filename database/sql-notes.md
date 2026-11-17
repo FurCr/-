@@ -301,3 +301,27 @@ WHERE NOT EXISTS (
 ### Вывод
 
 EXISTS проверяет наличие связанных строк без JOIN.
+
+## Задание 15 — UNION и UNION ALL
+
+### SQL
+
+```sql
+SELECT EmployeeId, EmployeeName FROM Employees WHERE Salary > 60000
+UNION
+SELECT EmployeeId, EmployeeName FROM Employees WHERE HireDate < '2022-01-01'
+ORDER BY EmployeeId;
+
+SELECT EmployeeId, EmployeeName FROM Employees WHERE Salary > 60000
+UNION ALL
+SELECT EmployeeId, EmployeeName FROM Employees WHERE HireDate < '2022-01-01'
+ORDER BY EmployeeId;
+```
+
+### Результат
+
+UNION — 6 уникальных сотрудников; UNION ALL — 10 строк с повторами. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+UNION убирает дубликаты, UNION ALL оставляет их.
