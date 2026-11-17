@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №34.</summary>
 public class Task34_WordGroups : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "LINQ: группировка слов";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сгруппировать слова по первой букве.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Не менее 10 слов",
@@ -13,6 +17,7 @@ public class Task34_WordGroups : ITask
         "Сортировка групп и слов"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         List<string> words = new List<string>
