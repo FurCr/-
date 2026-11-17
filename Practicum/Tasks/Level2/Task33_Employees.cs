@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №33.</summary>
 public class Task33_Employees : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "LINQ: сотрудники";
+    /// <summary>Описание задания.</summary>
     public string Description => "Вывести сотрудников по зарплате, отделам и возрасту.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Employee: Name, Age, Salary, Department",
@@ -13,6 +17,7 @@ public class Task33_Employees : ITask
         "Top 3, GroupBy Average, Where"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         List<Employee> employees = new List<Employee>
@@ -44,11 +49,16 @@ public class Task33_Employees : ITask
 
     private class Employee
     {
+        /// <summary>Выполняет действие.</summary>
         public string Name { get; }
+        /// <summary>Выполняет действие.</summary>
         public int Age { get; }
+        /// <summary>Выполняет действие.</summary>
         public decimal Salary { get; }
+        /// <summary>Выполняет действие.</summary>
         public string Department { get; }
 
+        /// <summary>Выполняет действие.</summary>
         public Employee(string name, int age, decimal salary, string department)
         {
             Name = name;
