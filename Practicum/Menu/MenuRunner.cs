@@ -5,8 +5,10 @@ using Practicum.Tasks.Level3;
 
 namespace Practicum.Menu;
 
+/// <summary>Меню или вспомогательный класс.</summary>
 public class MenuRunner
 {
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         while (true)
