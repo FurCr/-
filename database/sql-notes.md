@@ -604,3 +604,35 @@ ORDER BY DepartmentId, EmployeeId;
 ### Вывод
 
 Оконные агрегаты считают статистику без сворачивания строк.
+
+## Задание 25 — CTE
+
+### SQL
+
+```sql
+WITH AvgSalary AS
+(
+    SELECT AVG(Salary) AS Value FROM Employees
+)
+SELECT e.EmployeeName, e.Salary
+FROM Employees e CROSS JOIN AvgSalary a
+WHERE e.Salary > a.Value;
+
+WITH DepartmentAverage AS
+(
+    SELECT d.DepartmentName, AVG(e.Salary) AS AverageSalary
+    FROM Departments d
+    INNER JOIN Employees e ON e.DepartmentId = d.DepartmentId
+    GROUP BY d.DepartmentName
+)
+SELECT TOP (3) DepartmentName, AverageSalary
+FROM DepartmentAverage ORDER BY AverageSalary DESC;
+```
+
+### Результат
+
+Первая выборка — 4 сотрудника выше средней; вторая — топ-3: Менеджмент, Разработка, Аналитика. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+CTE позволяет вынести расчёт в отдельную именованную часть запроса.
