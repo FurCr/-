@@ -5,10 +5,14 @@ using System.Text;
 using Practicum.Common;
 
 namespace Practicum.Tasks.Level1;
+/// <summary>Задание №4.</summary>
 public class Task04_EvenOdd : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Чётность числа (два способа)";
+    /// <summary>Описание задания.</summary>
     public string Description => "Определить, чётное ли введённое число.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Способ 1: через % 2 == 0",
@@ -17,6 +21,7 @@ public class Task04_EvenOdd : ITask
         "Вывести результат обоих способов"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         Console.Write("Введите целое число: ");
