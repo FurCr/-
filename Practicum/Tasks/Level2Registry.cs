@@ -21,6 +21,7 @@ public static class Level2Registry
         new Task28_Points(),
         new Task29_Notifications(),
         new Task30_BankAccount(),
-        new Task31_FileWriter()
+        new Task31_FileWriter(),
+        new Task32_Temperature()
     };
 }
