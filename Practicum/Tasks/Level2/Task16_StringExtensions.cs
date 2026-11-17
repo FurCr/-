@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №16.</summary>
 public class Task16_StringExtensions : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Методы расширения string";
+    /// <summary>Описание задания.</summary>
     public string Description => "Три метода для работы со строками.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "IsPalindrome, WordCount, ReverseString",
@@ -14,6 +18,7 @@ public class Task16_StringExtensions : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         string[] examples = { "топот", "Добрый день!", "А роза упала на лапу Азора" };
@@ -28,8 +33,10 @@ public class Task16_StringExtensions : ITask
     }
 }
 
+/// <summary>Методы расширения строк.</summary>
 public static class StringExtensions
 {
+    /// <summary>Обрабатывает строку.</summary>
     public static bool IsPalindrome(this string text)
     {
         string clean = "";
@@ -51,6 +58,7 @@ public static class StringExtensions
         return true;
     }
 
+    /// <summary>Обрабатывает строку.</summary>
     public static int WordCount(this string text)
     {
         int count = 0;
@@ -71,6 +79,7 @@ public static class StringExtensions
         return count;
     }
 
+    /// <summary>Обрабатывает строку.</summary>
     public static string ReverseString(this string text)
     {
         char[] result = new char[text.Length];
