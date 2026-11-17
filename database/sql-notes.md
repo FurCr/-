@@ -231,3 +231,25 @@ ORDER BY e.EmployeeId;
 ### Вывод
 
 Таблица Employees соединена сама с собой.
+
+## Задание 12 — Подзапросы в WHERE
+
+### SQL
+
+```sql
+SELECT EmployeeName, Salary
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+
+SELECT EmployeeName, Salary
+FROM Employees
+WHERE Salary = (SELECT MAX(Salary) FROM Employees);
+```
+
+### Результат
+
+Выше средней зарплаты 58900 — 4 человека. Максимальная зарплата у Алексея Лебедева (90000). (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Подзапрос вычисляет значение для сравнения в WHERE.
