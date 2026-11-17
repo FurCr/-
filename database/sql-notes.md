@@ -665,3 +665,25 @@ ORDER BY EmployeeId;
 ### Вывод
 
 CASE формирует значения по условиям без изменения таблицы.
+
+## Задание 27 — Даты: DATEADD, DATEDIFF, FORMAT
+
+### SQL
+
+```sql
+SELECT EmployeeName, HireDate,
+       DATEDIFF(YEAR, HireDate, GETDATE()) AS YearsWorked,
+       DATEDIFF(MONTH, HireDate, GETDATE()) AS MonthsWorked,
+       DATEADD(YEAR, 1, HireDate) AS OneYearAfterHire,
+       FORMAT(HireDate, 'dd.MM.yyyy') AS FormattedHireDate
+FROM Employees
+ORDER BY HireDate;
+```
+
+### Результат
+
+Для каждого сотрудника рассчитываются стаж в годах и месяцах, дата через год и дата найма в формате дд.мм.гггг. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+DATEDIFF считает границы периодов, DATEADD добавляет год, FORMAT меняет отображение даты.
