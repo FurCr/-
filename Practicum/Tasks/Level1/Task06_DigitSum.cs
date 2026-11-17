@@ -32,7 +32,7 @@ public class Task06_DigitSum : ITask
         string text = n.ToString().TrimStart('-');
         int sum = 0;
         foreach (char digit in text)
-            sum += digit - '0';
+            sum += int.Parse(digit.ToString());
         return sum;
     }
 
