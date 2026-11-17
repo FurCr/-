@@ -583,3 +583,24 @@ ROLLBACK TRANSACTION;
 ### Вывод
 
 DENSE_RANK не пропускает номера при одинаковых значениях.
+
+## Задание 24 — Оконные агрегаты
+
+### SQL
+
+```sql
+SELECT EmployeeName, DepartmentId, Salary,
+       SUM(Salary) OVER (PARTITION BY DepartmentId) AS DepartmentTotal,
+       ROUND(AVG(Salary) OVER (PARTITION BY DepartmentId), 2) AS DepartmentAverage,
+       ROUND(Salary - AVG(Salary) OVER (PARTITION BY DepartmentId), 2) AS Difference
+FROM Employees
+ORDER BY DepartmentId, EmployeeId;
+```
+
+### Результат
+
+В отделе 1 сумма 240000 и средняя 60000, в отделе 2 — 171000 и 57000; значения повторяются для каждого сотрудника отдела. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Оконные агрегаты считают статистику без сворачивания строк.
