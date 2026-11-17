@@ -451,3 +451,34 @@ GO
 ### Вывод
 
 VIEW сохраняет SQL-запрос для повторного использования.
+
+## Задание 20 — Индексы и планы
+
+### SQL
+
+```sql
+SET STATISTICS IO ON;
+SELECT EmployeeName, Salary FROM Employees
+WHERE DepartmentId = 1 AND Salary > 50000;
+
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Employees_DepartmentId' AND object_id = OBJECT_ID('dbo.Employees'))
+    CREATE INDEX IX_Employees_DepartmentId ON Employees(DepartmentId);
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Employees_Salary' AND object_id = OBJECT_ID('dbo.Employees'))
+    CREATE INDEX IX_Employees_Salary ON Employees(Salary);
+
+SELECT EmployeeName, Salary FROM Employees
+WHERE DepartmentId = 1 AND Salary > 50000;
+SET STATISTICS IO OFF;
+
+SELECT name FROM sys.indexes
+WHERE object_id = OBJECT_ID('dbo.Employees')
+  AND name IN ('IX_Employees_DepartmentId', 'IX_Employees_Salary');
+```
+
+### Результат
+
+Вторая выборка возвращает те же 3 строки. Два индекса создаются; план и logical reads нужно снять в SSMS с включённым фактическим планом (Ctrl+M). На маленькой таблице оптимизатор может выбрать скан. (фактический запуск не проверен).
+
+### Вывод
+
+Индексы могут ускорить поиск, но выбор плана зависит от размера таблицы.
