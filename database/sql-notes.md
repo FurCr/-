@@ -355,3 +355,37 @@ ROLLBACK TRANSACTION;
 ### Вывод
 
 UPDATE с WHERE меняет нужные записи; откат оставляет базу неизменной.
+
+## Задание 17 — DELETE и ограничения FK
+
+### SQL
+
+```sql
+BEGIN TRANSACTION;
+
+SELECT COUNT(*) AS ZeroHoursBefore FROM EmployeeProjects WHERE Hours = 0;
+DELETE FROM EmployeeProjects WHERE Hours = 0;
+SELECT COUNT(*) AS ZeroHoursAfter FROM EmployeeProjects WHERE Hours = 0;
+
+SELECT COUNT(*) AS AssignmentsBefore FROM EmployeeProjects;
+DELETE FROM EmployeeProjects WHERE EmployeeId = 8;
+SELECT COUNT(*) AS AssignmentsAfter FROM EmployeeProjects;
+
+SELECT COUNT(*) AS EmployeesBefore FROM Employees;
+DELETE FROM Employees WHERE EmployeeId = 8;
+SELECT COUNT(*) AS EmployeesAfter FROM Employees;
+
+SELECT * INTO #TempEmployees FROM Employees;
+DELETE FROM #TempEmployees;
+SELECT COUNT(*) AS TempCountAfter FROM #TempEmployees;
+
+ROLLBACK TRANSACTION;
+```
+
+### Результат
+
+Исходно нулевых часов нет. В транзакции назначений становится 13, сотрудников 9, тестовая таблица пустая; затем откат. (фактический запуск не проверен).
+
+### Вывод
+
+Сначала удаляем связанные назначения, затем сотрудника. DELETE без WHERE проверен на копии.
