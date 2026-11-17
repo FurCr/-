@@ -24,3 +24,23 @@ ORDER BY TABLE_NAME;
 ### Вывод
 
 Создаются таблицы и внешние ключи, включая связь руководителя с сотрудником.
+
+## Задание 02 — Заполнение таблиц
+
+### SQL
+
+```sql
+-- INSERT в четыре таблицы находится в init.sql.
+SELECT (SELECT COUNT(*) FROM Departments) AS DepartmentsCount,
+       (SELECT COUNT(*) FROM Employees) AS EmployeesCount,
+       (SELECT COUNT(*) FROM Projects) AS ProjectsCount,
+       (SELECT COUNT(*) FROM EmployeeProjects) AS AssignmentsCount;
+```
+
+### Результат
+
+4 отдела, 10 сотрудников, 5 проектов и 14 назначений. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Данные добавлены через `INSERT INTO ... VALUES` в `init.sql`.
