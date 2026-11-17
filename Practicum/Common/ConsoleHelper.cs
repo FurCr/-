@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Practicum.Common;
 
+/// <summary>Меню или вспомогательный класс.</summary>
 public static class ConsoleHelper
 {
+    /// <summary>Выводит информацию в консоль.</summary>
     public static void PrintTaskHeader(string number, ITask task)
     {
         Console.WriteLine(new string('=', 50));
@@ -21,6 +23,7 @@ public static class ConsoleHelper
         Console.WriteLine("[запуск решения...]\n");
     }
 
+    /// <summary>Ожидает ввода.</summary>
     public static void Pause()
     {
         Console.WriteLine("\nНажмите Enter для возврата в меню...");
