@@ -457,31 +457,55 @@ VIEW сохраняет SQL-запрос для повторного испол�
 ### SQL
 
 ```sql
+USE PracticeDB;
+GO
+
+-- Проверяем запрос без дополнительных индексов.
+DROP INDEX IF EXISTS IX_Employees_DepartmentId ON Employees;
+DROP INDEX IF EXISTS IX_Employees_Salary ON Employees;
+GO
+
 SET STATISTICS IO ON;
 SELECT EmployeeName, Salary FROM Employees
 WHERE DepartmentId = 1 AND Salary > 50000;
+SET STATISTICS IO OFF;
+GO
 
-IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Employees_DepartmentId' AND object_id = OBJECT_ID('dbo.Employees'))
-    CREATE INDEX IX_Employees_DepartmentId ON Employees(DepartmentId);
-IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Employees_Salary' AND object_id = OBJECT_ID('dbo.Employees'))
-    CREATE INDEX IX_Employees_Salary ON Employees(Salary);
+SET SHOWPLAN_TEXT ON;
+GO
+SELECT EmployeeName, Salary FROM Employees
+WHERE DepartmentId = 1 AND Salary > 50000;
+GO
+SET SHOWPLAN_TEXT OFF;
+GO
 
+CREATE INDEX IX_Employees_DepartmentId ON Employees(DepartmentId);
+CREATE INDEX IX_Employees_Salary ON Employees(Salary);
+GO
+
+-- Выполняем тот же запрос после создания индексов.
+SET STATISTICS IO ON;
 SELECT EmployeeName, Salary FROM Employees
 WHERE DepartmentId = 1 AND Salary > 50000;
 SET STATISTICS IO OFF;
+GO
 
-SELECT name FROM sys.indexes
-WHERE object_id = OBJECT_ID('dbo.Employees')
-  AND name IN ('IX_Employees_DepartmentId', 'IX_Employees_Salary');
+SET SHOWPLAN_TEXT ON;
+GO
+SELECT EmployeeName, Salary FROM Employees
+WHERE DepartmentId = 1 AND Salary > 50000;
+GO
+SET SHOWPLAN_TEXT OFF;
+GO
 ```
 
 ### Результат
 
-Вторая выборка возвращает те же 3 строки. Создаются два индекса. На маленькой таблице SQL Server может использовать сканирование; для анализа служит STATISTICS IO.
+На исходных данных оба запроса возвращают трёх сотрудников: Анну Иванову, Петра Сидорова и Марию Кузнецову. Количество логических чтений и текст плана выводятся SQL Server при запуске запросов. На небольшой таблице план может остаться прежним.
 
 ### Вывод
 
-Индексы могут ускорить поиск, но выбор плана зависит от размера таблицы.
+Индексы могут ускорить поиск, но SQL Server выбирает план с учётом количества данных. Сравниваются `logical reads` и операторы плана до и после создания индексов.
 
 ## Задание 21 — Хранимые процедуры
 
