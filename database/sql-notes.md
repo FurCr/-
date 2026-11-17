@@ -212,3 +212,22 @@ ORDER BY d.DepartmentName, e.EmployeeName, p.ProjectName;
 ### Вывод
 
 Соединены четыре таблицы по внешним ключам.
+
+## Задание 11 — Self-join руководителей
+
+### SQL
+
+```sql
+SELECT e.EmployeeName, m.EmployeeName AS ManagerName
+FROM Employees e
+LEFT JOIN Employees m ON m.EmployeeId = e.ManagerId
+ORDER BY e.EmployeeId;
+```
+
+### Результат
+
+У Марии руководитель Пётр, у Ивана — Анна, у Дмитрия — Ольга, у Натальи — Алексей. Остальные NULL. (ожидаемый, проверить в SSMS).
+
+### Вывод
+
+Таблица Employees соединена сама с собой.
