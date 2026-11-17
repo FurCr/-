@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №40.</summary>
 public class Task40_AsyncDownload : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "async/await и ошибки";
+    /// <summary>Описание задания.</summary>
     public string Description => "Имитировать скачивание с обработкой исключения.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "DownloadAsync с Task.Delay(1000)",
@@ -13,6 +17,7 @@ public class Task40_AsyncDownload : ITask
         "Успешный и ошибочный вызов"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         RunAsync().GetAwaiter().GetResult();
