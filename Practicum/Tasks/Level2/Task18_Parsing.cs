@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
+/// <summary>Задание №18.</summary>
 public class Task18_Parsing : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "TryParse и try/catch";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сравнить два способа чтения числа.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Метод с int.TryParse и out",
@@ -14,6 +18,7 @@ public class Task18_Parsing : ITask
     };
 
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         string[] examples = { "123", "abc" };
