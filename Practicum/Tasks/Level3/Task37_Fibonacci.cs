@@ -2,10 +2,14 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level3;
 
+/// <summary>Задание №37.</summary>
 public class Task37_Fibonacci : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Фибоначчи с запоминанием";
+    /// <summary>Описание задания.</summary>
     public string Description => "Сравнить обычную рекурсию и Dictionary.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Два рекурсивных метода",
@@ -13,6 +17,7 @@ public class Task37_Fibonacci : ITask
         "Stopwatch для N = 35"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         int n = 35;
