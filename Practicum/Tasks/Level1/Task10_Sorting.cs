@@ -8,10 +8,14 @@ using System.Diagnostics;
 namespace Practicum.Tasks.Level1;
 
 
+/// <summary>Задание №10.</summary>
 public class Task10_Sorting : ITask
 {
+    /// <summary>Название задания.</summary>
     public string Title => "Сортировка пузырьком + вставками";
+    /// <summary>Описание задания.</summary>
     public string Description => "Отсортировать массив двумя алгоритмами.";
+    /// <summary>Условия задания.</summary>
     public string[] Requirements => new[]
     {
         "Реализовать BubbleSort и InsertionSort отдельными методами",
@@ -20,6 +24,7 @@ public class Task10_Sorting : ITask
         "Вывести оба времени"
     };
 
+    /// <summary>Запускает задание.</summary>
     public void Run()
     {
         int size = 10000;
