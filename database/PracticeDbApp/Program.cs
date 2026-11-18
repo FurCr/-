@@ -1,5 +1,6 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 
 string connectionString = Environment.GetEnvironmentVariable("PRACTICE_DB_CONNECTION") ?? "";
 
@@ -41,7 +42,9 @@ while (true)
         string name = Console.ReadLine()?.Trim() ?? "";
 
         Console.Write("Зарплата: ");
-        bool salaryOk = decimal.TryParse(Console.ReadLine(), out decimal salary);
+        string salaryText = (Console.ReadLine() ?? "").Trim().Replace(',', '.');
+        bool salaryOk = decimal.TryParse(salaryText, NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint,
+            CultureInfo.InvariantCulture, out decimal salary);
 
         Console.Write("Номер отдела: ");
         bool departmentOk = int.TryParse(Console.ReadLine(), out int departmentId);
