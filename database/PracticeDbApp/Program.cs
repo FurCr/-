@@ -9,6 +9,16 @@ if (string.IsNullOrWhiteSpace(connectionString))
     return;
 }
 
+try
+{
+    _ = new SqlConnectionStringBuilder(connectionString);
+}
+catch (ArgumentException)
+{
+    Console.WriteLine("Неверная строка подключения.");
+    return;
+}
+
 while (true)
 {
     Console.WriteLine("\n=== PracticeDB ===");
@@ -18,8 +28,8 @@ while (true)
     Console.WriteLine("0. Выход");
     Console.Write("Выберите действие: ");
 
-    string choice = Console.ReadLine() ?? "";
-    if (choice == "0") break;
+    string? choice = Console.ReadLine();
+    if (choice == null || choice == "0") break;
 
     if (choice == "1")
     {
