@@ -76,10 +76,12 @@ public class Task44_Todo : ITask
             catch (IOException ex)
             {
                 Console.WriteLine("Ошибка файла: " + ex.Message);
+                return;
             }
             catch (UnauthorizedAccessException)
             {
                 Console.WriteLine("Нет доступа к файлу.");
+                return;
             }
         }
     }
@@ -149,7 +151,16 @@ public class Task44_Todo : ITask
         private void Save()
         {
             string json = JsonSerializer.Serialize(tasks, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(FileName, json);
+            string temporaryPath = FileName + "." + Guid.NewGuid().ToString("N") + ".tmp";
+            try
+            {
+                File.WriteAllText(temporaryPath, json);
+                File.Move(temporaryPath, FileName, overwrite: true);
+            }
+            finally
+            {
+                if (File.Exists(temporaryPath)) File.Delete(temporaryPath);
+            }
         }
     }
 

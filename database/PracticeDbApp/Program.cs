@@ -103,20 +103,14 @@ static async Task AddEmployee(string name, decimal salary, int departmentId)
         using SqlConnection db = new SqlConnection(connection);
         await db.OpenAsync();
 
-        using SqlCommand check = new SqlCommand(
-            "SELECT COUNT(*) FROM Employees WHERE EmployeeName = @name", db);
-        check.Parameters.Add("@name", SqlDbType.NVarChar, 100).Value = name;
-
-        if (Convert.ToInt32(await check.ExecuteScalarAsync()) > 0)
-        {
-            Console.WriteLine("Сотрудник с таким именем уже есть.");
-            return;
-        }
-
         using SqlCommand insert = new SqlCommand(
             @"INSERT INTO Employees (EmployeeName, Salary, HireDate, DepartmentId)
               OUTPUT INSERTED.EmployeeId
-              VALUES (@name, @salary, CAST(GETDATE() AS DATE), @deptId)", db);
+              SELECT @name, @salary, CAST(GETDATE() AS DATE), @deptId
+              WHERE NOT EXISTS (
+                  SELECT 1 FROM Employees WITH (UPDLOCK, HOLDLOCK)
+                  WHERE EmployeeName = @name
+              )", db);
 
         insert.Parameters.Add("@name", SqlDbType.NVarChar, 100).Value = name;
         SqlParameter salaryParam = insert.Parameters.Add("@salary", SqlDbType.Decimal);
@@ -125,7 +119,13 @@ static async Task AddEmployee(string name, decimal salary, int departmentId)
         salaryParam.Value = salary;
         insert.Parameters.Add("@deptId", SqlDbType.Int).Value = departmentId;
 
-        int id = Convert.ToInt32(await insert.ExecuteScalarAsync());
+        object? inserted = await insert.ExecuteScalarAsync();
+        if (inserted == null)
+        {
+            Console.WriteLine("Сотрудник с таким именем уже есть.");
+            return;
+        }
+        int id = Convert.ToInt32(inserted);
 
         using SqlCommand confirm = new SqlCommand(
             "SELECT EmployeeName, Salary, DepartmentId FROM Employees WHERE EmployeeId = @id", db);
