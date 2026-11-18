@@ -501,7 +501,67 @@ GO
 
 ### Результат
 
-На исходных данных оба запроса возвращают трёх сотрудников: Анну Иванову, Петра Сидорова и Марию Кузнецову. Количество логических чтений и текст плана выводятся SQL Server при запуске запросов. На небольшой таблице план может остаться прежним.
+На исходных данных оба запроса возвращают трёх сотрудников: Анну Иванову, Петра Сидорова и Марию Кузнецову. На 10 сотрудниках SQL Server 2022 выполнил по 2 логических чтения до и после создания индексов. В каждом случае было одно сканирование и 0 физических чтений. Текст планов:
+
+```text
+До: |--Clustered Index Scan(OBJECT:([PracticeDB].[dbo].[Employees].[PK__Employee__7AD04F110FCDC798]), WHERE:([PracticeDB].[dbo].[Employees].[DepartmentId]=CONVERT_IMPLICIT(int,[@1],0) AND [PracticeDB].[dbo].[Employees].[Salary]>CONVERT_IMPLICIT(decimal(10,0),[@2],0)))
+После: |--Clustered Index Scan(OBJECT:([PracticeDB].[dbo].[Employees].[PK__Employee__7AD04F110FCDC798]), WHERE:([PracticeDB].[dbo].[Employees].[DepartmentId]=(1) AND [PracticeDB].[dbo].[Employees].[Salary]>(50000.)))
+```
+
+### Проверка на 10 010 строках
+
+Во временную таблицу скопированы 10 исходных сотрудников и добавлены 10 000 сотрудников второго отдела. Фильтр по первому отделу по-прежнему возвращает три строки. Дополнительные записи существуют только во временной таблице.
+
+```sql
+CREATE TABLE #Employees (
+    EmployeeId INT IDENTITY PRIMARY KEY,
+    EmployeeName NVARCHAR(100) NOT NULL,
+    Salary DECIMAL(10,2) NOT NULL,
+    HireDate DATE NOT NULL,
+    DepartmentId INT NOT NULL
+);
+INSERT INTO #Employees (EmployeeName, Salary, HireDate, DepartmentId)
+SELECT EmployeeName, Salary, HireDate, DepartmentId FROM dbo.Employees;
+;WITH Digits(n) AS (
+    SELECT n FROM (VALUES (0),(1),(2),(3),(4),(5),(6),(7),(8),(9)) AS v(n)
+)
+INSERT INTO #Employees (EmployeeName, Salary, HireDate, DepartmentId)
+SELECT N'Тест', 40000, '2020-01-01', 2
+FROM Digits a CROSS JOIN Digits b CROSS JOIN Digits c CROSS JOIN Digits d;
+GO
+SET STATISTICS IO ON;
+SELECT EmployeeName, Salary FROM #Employees WHERE DepartmentId = 1 AND Salary > 50000;
+SET STATISTICS IO OFF;
+GO
+SET SHOWPLAN_TEXT ON;
+GO
+SELECT EmployeeName, Salary FROM #Employees WHERE DepartmentId = 1 AND Salary > 50000;
+GO
+SET SHOWPLAN_TEXT OFF;
+GO
+CREATE INDEX IX_Employees_DepartmentId ON #Employees(DepartmentId);
+CREATE INDEX IX_Employees_Salary ON #Employees(Salary);
+GO
+SET STATISTICS IO ON;
+SELECT EmployeeName, Salary FROM #Employees WHERE DepartmentId = 1 AND Salary > 50000;
+SET STATISTICS IO OFF;
+GO
+SET SHOWPLAN_TEXT ON;
+GO
+SELECT EmployeeName, Salary FROM #Employees WHERE DepartmentId = 1 AND Salary > 50000;
+GO
+SET SHOWPLAN_TEXT OFF;
+GO
+DROP TABLE #Employees;
+```
+
+SQL Server 2022, результаты запуска 18.11.2026:
+
+| Измерение | До создания индексов | После создания индексов |
+| --- | --- | --- |
+| Логические чтения | 53 | 10 |
+| Строк в результате | 3 | 3 |
+| План | Clustered Index Scan | Index Seek по IX_Employees_DepartmentId, затем Nested Loops и поиск по кластерному ключу |
 
 ### Вывод
 
