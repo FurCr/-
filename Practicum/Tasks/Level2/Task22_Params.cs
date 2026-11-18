@@ -18,6 +18,11 @@ public class Task22_Params : ITask
     };
 
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Сумма верная для чисел, массива и пустого вызова.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Проверь сумму чисел, массива и пустой вызов.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

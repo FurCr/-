@@ -18,6 +18,11 @@ public class Task06_DigitSum : ITask
         "Отрицательные числа — брать модуль"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Оба способа дают одинаковую сумму цифр.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Остаток n % 10 помещается в int даже для long.MinValue.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

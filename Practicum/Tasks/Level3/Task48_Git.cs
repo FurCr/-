@@ -17,6 +17,11 @@ public class Task48_Git : ITask
         "git push origin v1.0.0"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Тег v1.0.0 должен появиться на GitHub.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Для публикации тега используй git push origin v1.0.0.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

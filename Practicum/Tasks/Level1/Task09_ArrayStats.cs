@@ -21,6 +21,11 @@ public class Task09_ArrayStats : ITask
         "Пустой массив — обработать (вернуть ошибку или 0, но не падать)"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Найдены минимум, максимум, сумма и среднее.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Начни min и max с первого элемента массива.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

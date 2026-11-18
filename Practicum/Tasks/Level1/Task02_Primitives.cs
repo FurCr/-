@@ -21,6 +21,11 @@ public class Task02_Primitives : ITask
         "decimal — с суффиксом m, float — с f"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Показаны значения всех типов и их названия.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Для float пишем f, для decimal — m.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

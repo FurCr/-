@@ -18,6 +18,11 @@ public class Task14_AgeCalculator : ITask
         "Некорректная дата — сообщение об ошибке, не падать"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Возраст показан в годах, месяцах и днях.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Проверяй, что дата не в будущем.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

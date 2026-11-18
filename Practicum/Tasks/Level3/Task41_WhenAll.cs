@@ -17,6 +17,11 @@ public class Task41_WhenAll : ITask
         "10 вызовов через Task.WhenAll"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Результаты совпадают, параллельный запуск быстрее.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Task.WhenAll ждёт все задачи одновременно.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

@@ -9,6 +9,16 @@ if (string.IsNullOrWhiteSpace(connectionString))
     return;
 }
 
+try
+{
+    _ = new SqlConnectionStringBuilder(connectionString);
+}
+catch (ArgumentException ex)
+{
+    Console.WriteLine("Некорректная строка подключения: " + ex.Message);
+    return;
+}
+
 while (true)
 {
     Console.WriteLine("\n=== PracticeDB ===");
@@ -18,8 +28,8 @@ while (true)
     Console.WriteLine("0. Выход");
     Console.Write("Выберите действие: ");
 
-    string choice = Console.ReadLine() ?? "";
-    if (choice == "0") break;
+    string? choice = Console.ReadLine();
+    if (choice == null || choice == "0") break;
 
     if (choice == "1")
     {
@@ -154,8 +164,8 @@ static async Task ShowReport(string connectionString)
                      AVG(e.Salary) AS AvgSalary
               FROM Departments d
               LEFT JOIN Employees e ON e.DepartmentId = d.DepartmentId
-              GROUP BY d.DepartmentName
-              ORDER BY d.DepartmentName", db);
+              GROUP BY d.DepartmentId, d.DepartmentName
+              ORDER BY d.DepartmentName, d.DepartmentId", db);
 
         using SqlDataReader reader = await command.ExecuteReaderAsync();
         Console.WriteLine($"{"Отдел",-22} | {"Сотрудников",12} | {"Средняя зарплата",18}");

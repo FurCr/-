@@ -23,6 +23,11 @@ public class Task11_MatrixDiagonal : ITask
         "Вывести саму матрицу и сумму"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Выведена матрица и сумма её диагонали.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Суммируй matrix[i, i].";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

@@ -21,7 +21,7 @@ public class MenuRunner
             Console.WriteLine("4. Выход");
             Console.Write("Выберите уровень: ");
 
-            string choice = Console.ReadLine() ?? "";
+            string? choice = Console.ReadLine();
             switch (choice)
             {
                 case "1":
@@ -34,6 +34,7 @@ public class MenuRunner
                     RunLevel("Уровень 3: Продвинутый", Level3Registry.Tasks, 36);
                     break;
                 case "0":
+                case null:
                 case "4":
                 case "q":
                 case "Q":
@@ -57,9 +58,9 @@ public class MenuRunner
 
             Console.WriteLine("0. Назад");
             Console.Write("Выберите задание: ");
-            string input = Console.ReadLine() ?? "";
+            string? input = Console.ReadLine();
 
-            if (input == "0" || input == "q")
+            if (input == null || input == "0" || string.Equals(input, "q", StringComparison.OrdinalIgnoreCase))
                 return;
 
             if (int.TryParse(input, out int number) &&

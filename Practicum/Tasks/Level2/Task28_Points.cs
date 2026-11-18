@@ -17,6 +17,11 @@ public class Task28_Points : ITask
         "Проверить дубликаты в HashSet"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Одинаковые точки равны, дубликаты не добавляются.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Для одинаковых x и y должен получаться одинаковый хеш.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

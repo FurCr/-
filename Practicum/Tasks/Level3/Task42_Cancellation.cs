@@ -17,6 +17,11 @@ public class Task42_Cancellation : ITask
         "Поймать OperationCanceledException"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Операция отменяется без падения программы.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Передай токен в Task.Delay.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

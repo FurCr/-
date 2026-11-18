@@ -17,6 +17,11 @@ public class Task47_Git : ITask
         "История до и после в git-notes.md"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Четыре коммита объединены в один.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Вывод git log сохранён в git-notes.md.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

@@ -18,6 +18,11 @@ public class Task25_Shapes : ITask
     };
 
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Фигуры отсортированы по площади.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Для прямоугольного треугольника площадь равна половине произведения катетов.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

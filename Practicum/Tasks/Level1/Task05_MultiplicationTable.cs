@@ -21,6 +21,11 @@ public class Task05_MultiplicationTable : ITask
         "Заголовки строк/столбцов — не обязательны, но приветствуются"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Напечатана ровная таблица 10 на 10.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Для выравнивания пригодится {число,4}.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

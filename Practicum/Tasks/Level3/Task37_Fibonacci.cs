@@ -17,6 +17,11 @@ public class Task37_Fibonacci : ITask
         "Stopwatch для N = 35"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Результаты совпадают, мемоизация быстрее.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Сохраняй уже вычисленные числа в Dictionary.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

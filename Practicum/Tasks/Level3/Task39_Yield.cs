@@ -17,6 +17,11 @@ public class Task39_Yield : ITask
         "Показать ленивый вывод"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Чётные числа выводятся по одному.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Код внутри генератора выполняется при foreach.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

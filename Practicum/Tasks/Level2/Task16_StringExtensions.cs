@@ -18,6 +18,11 @@ public class Task16_StringExtensions : ITask
     };
 
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Три метода работают для нескольких строк.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Первый параметр метода расширения пишется this string.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

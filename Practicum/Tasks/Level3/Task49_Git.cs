@@ -17,6 +17,11 @@ public class Task49_Git : ITask
         "git reset --hard <hash>"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Коммит найден и восстановлен, история сохранена.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Результаты команд записаны в git-notes.md.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

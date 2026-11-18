@@ -22,6 +22,11 @@ public class Task03_Calculator : ITask
         "Ввод чисел — через double.Parse или TryParse"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Все четыре действия работают, деление на ноль обработано.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Используй switch и TryParse.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

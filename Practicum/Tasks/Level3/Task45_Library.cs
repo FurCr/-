@@ -17,6 +17,11 @@ public class Task45_Library : ITask
         "Исключения и юнит-тесты"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Выдача и возврат работают, ошибки обрабатываются.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Перед выдачей проверь доступность и количество книг.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

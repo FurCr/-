@@ -13,6 +13,10 @@ public interface ITask
     string Description { get; }
     /// <summary>Требования задания.</summary>
     string[] Requirements { get; }
+    /// <summary>Ожидаемый результат.</summary>
+    string ExpectedResult { get; }
+    /// <summary>Подсказка.</summary>
+    string Hint { get; }
     /// <summary>Запускает задание.</summary>
     void Run();
 }

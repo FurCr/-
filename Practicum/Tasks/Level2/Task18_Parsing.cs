@@ -18,6 +18,11 @@ public class Task18_Parsing : ITask
     };
 
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Оба способа обрабатывают 123 и abc.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Каждый способ в отдельном методе.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

@@ -17,6 +17,11 @@ public class Task40_AsyncDownload : ITask
         "Успешный и ошибочный вызов"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Скачивание работает, ошибка обрабатывается.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Используй await внутри try/catch.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

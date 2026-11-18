@@ -18,6 +18,11 @@ public class Task19_StackQueue : ITask
     };
 
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Стек и очередь работают, пустые коллекции не ломают программу.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "У очереди удобно хранить индекс первого элемента.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

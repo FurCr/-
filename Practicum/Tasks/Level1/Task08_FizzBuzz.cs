@@ -23,6 +23,11 @@ public class Task08_FizzBuzz : ITask
         "Порядок проверок: сначала 15, потом 3 и 5"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Числа от 1 до 100 выведены с заменами.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "if / else if.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

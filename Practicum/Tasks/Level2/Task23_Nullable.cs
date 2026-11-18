@@ -23,6 +23,11 @@ public class Task23_Nullable : ITask
         { "one", 10 }, { "two", 20 }
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Все случаи с null обработаны без ошибки.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Значение Value читаем только после проверки HasValue.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

@@ -17,6 +17,11 @@ public class Task15_Git : ITask
         "История в git-notes.md"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Есть merge, разрешённый конфликт и история в git-notes.md.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Результаты команд находятся в git-notes.md.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

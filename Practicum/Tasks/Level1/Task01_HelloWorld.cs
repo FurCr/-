@@ -20,6 +20,11 @@ public class Task01_HelloWorld : ITask
         "Вывести две строки: приветствие и дату"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Выведены приветствие и текущая дата.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Используй DateTime.Now.ToString(\"dd.MM.yyyy\").";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

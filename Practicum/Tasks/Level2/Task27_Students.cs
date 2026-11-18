@@ -17,6 +17,11 @@ public class Task27_Students : ITask
         "Показать обе сортировки"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Студенты отсортированы по оценкам и по имени.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "В CompareTo можно сравнить AverageGrade в обратном порядке.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

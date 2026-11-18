@@ -23,6 +23,11 @@ public class Task13_WordCounter : ITask
         "Вывести пары «слово → количество», отсортированные по убыванию количества"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Все слова посчитаны по убыванию частоты.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Раздели строку через Split и используй OrderByDescending.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

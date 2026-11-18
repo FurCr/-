@@ -20,6 +20,11 @@ public class Task07_ReverseString : ITask
         "Пустая строка и строка из одного символа — обрабатываются корректно"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Строка перевёрнута, даже если она пустая.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Можно добавлять символы в результат по одному.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

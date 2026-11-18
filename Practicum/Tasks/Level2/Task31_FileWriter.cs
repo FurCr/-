@@ -17,6 +17,11 @@ public class Task31_FileWriter : ITask
         "using и using var"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Файл закрывается и повторно открывается для записи.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "using сам вызывает Dispose.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

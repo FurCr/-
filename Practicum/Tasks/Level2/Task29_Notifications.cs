@@ -17,6 +17,11 @@ public class Task29_Notifications : ITask
         "NotificationFactory.Create"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Все три вида уведомлений работают.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "В фабрике удобно использовать switch.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

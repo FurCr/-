@@ -21,6 +21,11 @@ public class Task04_EvenOdd : ITask
         "Вывести результат обоих способов"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Оба способа правильно определяют чётность.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Оба метода должны вернуть результат.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

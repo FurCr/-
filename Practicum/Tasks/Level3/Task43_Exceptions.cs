@@ -17,6 +17,11 @@ public class Task43_Exceptions : ITask
         "finally выполняется всегда"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Каждая ошибка обработана, finally выполняется всегда.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Сначала укажи конкретные catch, затем общий.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

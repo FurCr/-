@@ -22,6 +22,11 @@ public class Task12_Palindrome : ITask
         "Пустая строка и строка из одного символа — палиндром"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Палиндром определяется без учёта регистра и пробелов.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Можно сравнивать символы с двух концов.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

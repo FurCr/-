@@ -17,6 +17,11 @@ public class Task36_Duplicates : ITask
         "Сравнить результаты"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Оба способа находят одинаковые дубликаты.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "HashSet помогает запоминать встреченные числа.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

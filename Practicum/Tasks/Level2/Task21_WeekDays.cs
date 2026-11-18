@@ -23,6 +23,11 @@ public class Task21_WeekDays : ITask
         Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
     }
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Все семь дней выведены с признаком выходного.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Суббота и воскресенье — выходные.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

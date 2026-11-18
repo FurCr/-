@@ -17,6 +17,11 @@ public class Task26_Discounts : ITask
         "PriceCalculator принимает стратегию"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Цены с разными скидками посчитаны правильно.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Калькулятор должен работать с любым видом скидки.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

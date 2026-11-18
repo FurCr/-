@@ -17,6 +17,11 @@ public class Task30_BankAccount : ITask
         "InsufficientFundsException"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Деньги не уходят в минус, ошибка обрабатывается.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Перед снятием проверь баланс.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

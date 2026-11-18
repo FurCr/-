@@ -17,6 +17,11 @@ public class Task33_Employees : ITask
         "Top 3, GroupBy Average, Where"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Выведены топ-3, средняя зарплата и фильтр по возрасту.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Здесь пригодятся OrderByDescending, Take и GroupBy.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {

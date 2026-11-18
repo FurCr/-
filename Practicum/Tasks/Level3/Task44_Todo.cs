@@ -18,6 +18,11 @@ public class Task44_Todo : ITask
         "Сохранение в tasks.json"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Список задач сохраняется между запусками.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Для сохранения используй System.Text.Json.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {
@@ -31,8 +36,8 @@ public class Task44_Todo : ITask
             Console.WriteLine("4. Удалить");
             Console.WriteLine("0. Назад");
             Console.Write("Выберите действие: ");
-            string choice = Console.ReadLine() ?? "";
-            if (choice == "0") return;
+            string? choice = Console.ReadLine();
+            if (choice == null || choice == "0") return;
 
             try
             {
@@ -106,11 +111,7 @@ public class Task44_Todo : ITask
             }
             catch (JsonException)
             {
-                Console.WriteLine("Файл tasks.json повреждён.");
-            }
-            catch (IOException)
-            {
-                Console.WriteLine("Не удалось прочитать tasks.json.");
+                throw new InvalidDataException("Файл tasks.json повреждён.");
             }
         }
 

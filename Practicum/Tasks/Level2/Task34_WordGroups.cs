@@ -17,6 +17,11 @@ public class Task34_WordGroups : ITask
         "Сортировка групп и слов"
     };
 
+    /// <summary>Ожидаемый результат.</summary>
+    public string ExpectedResult => "Слова сгруппированы и отсортированы по буквам.";
+    /// <summary>Подсказка.</summary>
+    public string Hint => "Сначала отсортируй группы, затем слова в них.";
+
     /// <summary>Запускает задание.</summary>
     public void Run()
     {
