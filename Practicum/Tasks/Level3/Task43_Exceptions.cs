@@ -63,7 +63,7 @@ public class Task43_Exceptions : ITask
     // Общий catch должен быть последним, иначе специальные не выполнятся.
     private class CustomException : Exception
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт собственное исключение.</summary>
         public CustomException(string message) : base(message) { }
     }
 }

@@ -50,14 +50,14 @@ public class Task27_Students : ITask
         /// <summary>Средняя оценка.</summary>
         public double AverageGrade { get; }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт студента.</summary>
         public Student(string name, double averageGrade)
         {
             Name = name;
             AverageGrade = averageGrade;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Сравнивает студентов по среднему баллу.</summary>
         public int CompareTo(Student? other)
         {
             if (other == null) return -1;
@@ -67,7 +67,7 @@ public class Task27_Students : ITask
 
     private class ByNameComparer : IComparer<Student>
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Сравнивает студентов по имени.</summary>
         public int Compare(Student? a, Student? b)
         {
             return string.Compare(a?.Name, b?.Name, StringComparison.CurrentCulture);

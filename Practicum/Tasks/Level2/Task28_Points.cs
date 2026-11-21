@@ -36,31 +36,31 @@ public class Task28_Points : ITask
 
     private class Point : IEquatable<Point>
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Координата X.</summary>
         public int X { get; }
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Координата Y.</summary>
         public int Y { get; }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт точку.</summary>
         public Point(int x, int y)
         {
             X = x;
             Y = y;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Сравнивает точки по координатам.</summary>
         public bool Equals(Point? other)
         {
             return other != null && X == other.X && Y == other.Y;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Проверяет равенство с другим объектом.</summary>
         public override bool Equals(object? obj)
         {
             return obj is Point other && Equals(other);
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Вычисляет хеш по координатам.</summary>
         public override int GetHashCode()
         {
             return HashCode.Combine(X, Y);

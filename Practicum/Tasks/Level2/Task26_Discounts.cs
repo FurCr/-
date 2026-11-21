@@ -42,19 +42,19 @@ public class Task26_Discounts : ITask
 
     private class NoDiscount : IDiscountStrategy
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Возвращает цену с учётом выбранной скидки.</summary>
         public decimal Apply(decimal price) => price;
     }
 
     private class VipDiscount : IDiscountStrategy
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Возвращает цену с учётом выбранной скидки.</summary>
         public decimal Apply(decimal price) => price * 0.90m;
     }
 
     private class PromoDiscount : IDiscountStrategy
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Возвращает цену с учётом выбранной скидки.</summary>
         public decimal Apply(decimal price) => price * 0.80m;
     }
 
@@ -62,13 +62,13 @@ public class Task26_Discounts : ITask
     {
         private IDiscountStrategy strategy;
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Сохраняет стратегию скидки.</summary>
         public PriceCalculator(IDiscountStrategy strategy)
         {
             this.strategy = strategy;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Рассчитывает итоговую цену.</summary>
         public decimal Calculate(decimal price) => strategy.Apply(price);
     }
 }

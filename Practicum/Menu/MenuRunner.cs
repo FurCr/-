@@ -5,7 +5,7 @@ using Practicum.Tasks.Level3;
 
 namespace Practicum.Menu;
 
-/// <summary>Меню или вспомогательный класс.</summary>
+/// <summary>Показывает меню и запускает выбранные задания.</summary>
 public class MenuRunner
 {
     /// <summary>Запускает задание.</summary>

@@ -48,7 +48,7 @@ public class Task24_Animals : ITask
         /// <summary>Издаёт звук.</summary>
         public abstract void MakeSound();
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Возвращает имя и вид животного.</summary>
         public override string ToString()
         {
             return GetType().Name + ": " + Name;
@@ -57,7 +57,7 @@ public class Task24_Animals : ITask
 
     private class Dog : Animal
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт собаку.</summary>
         public Dog(string name) : base(name) { }
         /// <summary>Издаёт звук.</summary>
         public override void MakeSound() => Console.WriteLine("Гав!");
@@ -65,7 +65,7 @@ public class Task24_Animals : ITask
 
     private class Cat : Animal
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт кошку.</summary>
         public Cat(string name) : base(name) { }
         /// <summary>Издаёт звук.</summary>
         public override void MakeSound() => Console.WriteLine("Мяу!");
@@ -73,7 +73,7 @@ public class Task24_Animals : ITask
 
     private class Bird : Animal
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт птицу.</summary>
         public Bird(string name) : base(name) { }
         /// <summary>Издаёт звук.</summary>
         public override void MakeSound() => Console.WriteLine("Чик-чирик!");

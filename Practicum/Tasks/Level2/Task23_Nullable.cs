@@ -49,7 +49,7 @@ public class Task23_Nullable : ITask
 
     private class Student
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Имя студента.</summary>
         public string Name { get; set; } = "";
     }
 }

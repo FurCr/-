@@ -57,7 +57,7 @@ public class Task29_Notifications : ITask
 
     private static class NotificationFactory
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт уведомление нужного типа.</summary>
         public static INotification Create(NotificationType type)
         {
             return type switch

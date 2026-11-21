@@ -36,7 +36,7 @@ public class Task16_StringExtensions : ITask
 /// <summary>Методы расширения строк.</summary>
 public static class StringExtensions
 {
-    /// <summary>Обрабатывает строку.</summary>
+    /// <summary>Проверяет строку на палиндром.</summary>
     public static bool IsPalindrome(this string text)
     {
         string clean = "";
@@ -58,7 +58,7 @@ public static class StringExtensions
         return true;
     }
 
-    /// <summary>Обрабатывает строку.</summary>
+    /// <summary>Считает слова в строке.</summary>
     public static int WordCount(this string text)
     {
         int count = 0;
@@ -79,7 +79,7 @@ public static class StringExtensions
         return count;
     }
 
-    /// <summary>Обрабатывает строку.</summary>
+    /// <summary>Переворачивает строку.</summary>
     public static string ReverseString(this string text)
     {
         char[] result = new char[text.Length];

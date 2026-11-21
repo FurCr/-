@@ -2,7 +2,7 @@ using Practicum.Common;
 
 namespace Practicum.Tasks.Level2;
 
-/// <summary>Класс заданий или тестов.</summary>
+/// <summary>Регистрирует задания второго уровня.</summary>
 public static class Level2Registry
 {
     /// <summary>Список заданий.</summary>

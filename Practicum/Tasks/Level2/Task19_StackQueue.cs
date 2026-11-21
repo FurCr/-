@@ -125,7 +125,7 @@ public class Task19_StackQueue : ITask
             return result;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Возвращает первый элемент очереди.</summary>
         public T Peek()
         {
             if (IsEmpty)

@@ -37,13 +37,13 @@ public class Task31_FileWriter : ITask
     {
         private StreamWriter writer;
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Открывает файл для записи.</summary>
         public FileWriter(string path, bool append = false)
         {
             writer = new StreamWriter(path, append);
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Записывает строку в файл.</summary>
         public void Write(string text)
         {
             writer.WriteLine(text);

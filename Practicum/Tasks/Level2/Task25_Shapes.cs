@@ -52,7 +52,7 @@ public class Task25_Shapes : ITask
     private class Circle : IShape
     {
         private double radius;
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт круг.</summary>
         public Circle(double radius) { this.radius = radius; }
         /// <summary>Вычисляет площадь.</summary>
         public double Area() => Math.PI * radius * radius;
@@ -64,7 +64,7 @@ public class Task25_Shapes : ITask
     {
         private double width;
         private double height;
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт прямоугольник.</summary>
         public Rectangle(double width, double height)
         {
             this.width = width;
@@ -80,7 +80,7 @@ public class Task25_Shapes : ITask
     {
         private double a;
         private double b;
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт треугольник.</summary>
         public Triangle(double a, double b)
         {
             this.a = a;

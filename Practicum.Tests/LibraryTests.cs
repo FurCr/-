@@ -3,10 +3,10 @@ using Xunit;
 
 namespace Practicum.Tests;
 
-/// <summary>Класс заданий или тестов.</summary>
+/// <summary>Тесты выдачи и возврата книг.</summary>
 public class LibraryTests
 {
-    /// <summary>Проверяет работу библиотеки.</summary>
+    /// <summary>Проверяет, что выданная книга становится недоступной.</summary>
     [Fact]
     public void Borrow_MarksBookUnavailable()
     {
@@ -21,7 +21,7 @@ public class LibraryTests
         Assert.Single(reader.BorrowedBooks);
     }
 
-    /// <summary>Проверяет работу библиотеки.</summary>
+    /// <summary>Проверяет, что возвращённая книга снова доступна.</summary>
     [Fact]
     public void Return_MakesBookAvailable()
     {
@@ -37,7 +37,7 @@ public class LibraryTests
         Assert.Empty(reader.BorrowedBooks);
     }
 
-    /// <summary>Проверяет работу библиотеки.</summary>
+    /// <summary>Проверяет, что одну книгу нельзя выдать дважды.</summary>
     [Fact]
     public void Borrow_SameBookTwiceThrows()
     {
@@ -50,7 +50,7 @@ public class LibraryTests
         Assert.Throws<InvalidOperationException>(() => library.Borrow(book, reader));
     }
 
-    /// <summary>Проверяет работу библиотеки.</summary>
+    /// <summary>Проверяет ограничение в три книги на читателя.</summary>
     [Fact]
     public void Borrow_FourthBookThrows()
     {
@@ -73,7 +73,7 @@ public class LibraryTests
         Assert.Equal(3, reader.BorrowedBooks.Count);
     }
 
-    /// <summary>Проверяет работу библиотеки.</summary>
+    /// <summary>Проверяет ошибку при возврате чужой книги.</summary>
     [Fact]
     public void Return_UnborrowedBookThrows()
     {
@@ -85,7 +85,7 @@ public class LibraryTests
         Assert.Throws<InvalidOperationException>(() => library.Return(book, reader));
     }
 
-    /// <summary>Проверяет работу библиотеки.</summary>
+    /// <summary>Проверяет ошибку при выдаче книги не из библиотеки.</summary>
     [Fact]
     public void Borrow_UnknownBookThrows()
     {

@@ -43,14 +43,14 @@ public class Task30_BankAccount : ITask
         /// <summary>Баланс счёта.</summary>
         public decimal Balance => balance;
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Пополняет баланс счёта.</summary>
         public void Deposit(decimal amount)
         {
             if (amount <= 0) throw new ArgumentException("Неверная сумма.");
             balance += amount;
         }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Снимает деньги со счёта.</summary>
         public void Withdraw(decimal amount)
         {
             if (amount <= 0) throw new ArgumentException("Неверная сумма.");
@@ -61,7 +61,7 @@ public class Task30_BankAccount : ITask
 
     private class InsufficientFundsException : Exception
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт исключение нехватки денег.</summary>
         public InsufficientFundsException(string message) : base(message) { }
     }
 }

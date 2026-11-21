@@ -49,16 +49,16 @@ public class Task33_Employees : ITask
 
     private class Employee
     {
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Имя сотрудника.</summary>
         public string Name { get; }
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Возраст сотрудника.</summary>
         public int Age { get; }
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Зарплата сотрудника.</summary>
         public decimal Salary { get; }
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Отдел сотрудника.</summary>
         public string Department { get; }
 
-        /// <summary>Выполняет действие.</summary>
+        /// <summary>Создаёт сотрудника.</summary>
         public Employee(string name, int age, decimal salary, string department)
         {
             Name = name;
