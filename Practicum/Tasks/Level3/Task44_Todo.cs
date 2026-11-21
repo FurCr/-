@@ -31,8 +31,8 @@ public class Task44_Todo : ITask
             Console.WriteLine("4. Удалить");
             Console.WriteLine("0. Назад");
             Console.Write("Выберите действие: ");
-            string choice = Console.ReadLine() ?? "";
-            if (choice == "0") return;
+            string? choice = Console.ReadLine();
+            if (choice == null || choice == "0") return;
 
             try
             {
